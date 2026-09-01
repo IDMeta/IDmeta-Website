@@ -5,10 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact IDmeta — Talk to our APAC identity team</title>
 <meta name="description" content="Contact IDmeta. Offices across Malaysia, the Philippines, Australia, Indonesia and Singapore. Tell us what you need and our team will be in touch.">
+<link rel="icon" href="favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+<link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Work+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script src="scripts.js" defer></script>
 <style>
 /* ── Contact page (scoped) ─────────────────────────────────── */
 .contact-hero{background:linear-gradient(135deg,var(--midnight) 0%,var(--violet) 100%);padding:72px 0 64px;position:relative;overflow:hidden}
@@ -58,8 +62,7 @@
 .gen-contact a:hover{color:var(--sky)}
 .gen-contact svg{width:15px;height:15px;stroke:currentColor;fill:none}
 .office-list{display:flex;flex-direction:column;gap:14px}
-.office{position:relative;border:1px solid var(--slate);border-radius:16px;padding:20px 22px 20px 24px;background:var(--white);transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s}
-.office::before{content:'';position:absolute;left:0;top:20px;bottom:20px;width:3px;border-radius:0 3px 3px 0;background:var(--sky)}
+.office{position:relative;border:1px solid var(--slate);border-radius:16px;padding:20px 22px;background:var(--white);transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s}
 .office:hover{transform:translateY(-3px);box-shadow:0 20px 44px -30px rgba(0,0,56,.4)}
 .office-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:9px}
 .office-name{font-family:'Sora',sans-serif;font-size:15px;font-weight:700;color:var(--midnight);letter-spacing:-.01em}
@@ -79,27 +82,8 @@
 </head>
 <body data-page="contact">
 
-<!-- ══ NAV ══════════════════════════════════════════════════ -->
-<nav>
-  <div class="container">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo"><img src="brand_assets/horizontal-logo.png" alt="IDmeta"></a>
-      <div class="nav-links">
-        <a href="index.html#platform">Platform</a>
-        <a href="index.html#products">Products</a>
-        <a href="kyt.html">KYT</a>
-        <a href="index.html#apac">APAC Coverage</a>
-        <a href="partners-delphix.html">Partners</a>
-        <a href="https://docs.idmetagroup.com" target="_blank" rel="noopener noreferrer">Developers</a>
-        <a href="contact.html" class="active">Contact</a>
-      </div>
-      <div class="nav-actions">
-        <button class="btn-ghost">Log in</button>
-        <a href="contact.html" class="btn-primary">Book a demo</a>
-      </div>
-    </div>
-  </div>
-</nav>
+<!-- ══ NAV (rendered by scripts.js — see renderNav) ═══════════ -->
+<nav></nav>
 
 <!-- ══ HEADER BAND ═══════════════════════════════════════════ -->
 <section class="contact-hero">
@@ -201,81 +185,45 @@
   </div>
 </section>
 
-<!-- ══ FOOTER ════════════════════════════════════════════════ -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">
-          <img src="brand_assets/horizontal-logo.png" alt="IDmeta">
-        </div>
-        <p class="footer-tagline">IDmeta is APAC’s end-to-end identity trust and compliance platform: eKYC, KYB, AML screening, and transaction monitoring, unified in one dashboard and one API. We verify customers at the government source — with direct accredited access to national identity data sources across Australia, the Philippines, Indonesia and Malaysia — backed by AI-driven biometrics and deepfake detection.</p>
-        <div class="footer-social">
-          <div class="social-btn">in</div>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Platform</h4>
-        <a href="index.html#platform">IDmeta Overview</a>
-        <a href="index.html#products">Document Verification</a>
-        <a href="index.html#products">Biometrics</a>
-        <a href="index.html#products">Govt Database</a>
-        <a href="index.html#products">AML Screening</a>
-        <a href="index.html#products">KYB</a>
-        <a href="kyt.html">Transaction Monitoring (KYT)</a>
-      </div>
-      <div class="footer-col">
-        <h4>APAC Markets</h4>
-        <a href="index.html#apac">Philippines</a>
-        <a href="index.html#apac">Indonesia</a>
-        <a href="index.html#apac">Australia</a>
-        <a href="index.html#apac">Malaysia</a>
-        <a href="index.html#apac">Singapore</a>
-      </div>
-      <div class="footer-col">
-        <h4>Industries</h4>
-        <a href="index.html#industries">Lending</a>
-        <a href="index.html#industries">Fintech &amp; Digital Banking</a>
-        <a href="index.html#industries">iGaming</a>
-        <a href="index.html#industries">Insurance</a>
-        <a href="index.html#industries">Remittance</a>
-        <a href="index.html#industries">Rural Banking</a>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <a href="index.html">About IDmeta</a>
-        <a href="index.html#customers">Customers</a>
-        <a href="index.html#trust">Trust Centre</a>
-        <a href="#">Developer Docs</a>
-        <a href="#">Blog &amp; Resources</a>
-        <a href="#">Careers</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 IDmeta Group Pty Ltd. All rights reserved. Melbourne, Australia · Singapore · Kuala Lumpur · Manila · Jakarta</p>
-      <div class="footer-bottom-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="index.html#trust">Trust Centre</a>
-        <a href="#">Cookie Settings</a>
-      </div>
-    </div>
-  </div>
-</footer>
+<!-- ══ FOOTER (rendered by scripts.js — see renderFooter) ══════ -->
+<footer></footer>
 
 <script>
 (function(){
   const form = document.getElementById('contact-form');
   const success = document.getElementById('form-success');
   if(!form) return;
+  const submitBtn = form.querySelector('.btn-primary-lg');
+  const submitLabel = submitBtn.innerHTML;
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
     // native validation for required fields
     if(!form.checkValidity()){ form.reportValidity(); return; }
-    form.style.display = 'none';
-    success.classList.add('show');
-    success.scrollIntoView({behavior:'smooth', block:'center'});
+
+    const payload = Object.fromEntries(new FormData(form).entries());
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload)
+    })
+    .then(function(res){
+      if(!res.ok) throw new Error('Request failed');
+      return res.json();
+    })
+    .then(function(){
+      form.style.display = 'none';
+      success.classList.add('show');
+      success.scrollIntoView({behavior:'smooth', block:'center'});
+    })
+    .catch(function(){
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = submitLabel;
+      alert('Something went wrong sending your message. Please email us directly at verify@idmetagroup.com.');
+    });
   });
 })();
 </script>

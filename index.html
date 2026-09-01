@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DM2MBMFGW7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DM2MBMFGW7');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IDmeta — Establish Trust from the First Click</title>
 <meta name="description" content="IDmeta is the APAC-native identity verification platform with direct, licensed access to PhilSys, Dukcapil, AU IDmatch, NBI, PRC and TIN. eKYC, AML, biometrics and KYB in one API.">
+<link rel="icon" href="favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+<link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Work+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -13,38 +25,18 @@
 </head>
 <body data-page="home">
 
-<!-- ══ NAV ══════════════════════════════════════════════════ -->
-<nav>
-  <div class="container">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo"><img src="brand_assets/horizontal-logo.png" alt="IDmeta"></a>
-      <div class="nav-links">
-        <a href="#platform" class="active">Platform</a>
-        <a href="#products">Products</a>
-        <a href="kyt.html">KYT</a>
-        <a href="#apac">APAC Coverage</a>
-        <a href="partners-delphix.html">Partners</a>
-        <a href="https://docs.idmetagroup.com" target="_blank" rel="noopener noreferrer">Developers</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="nav-actions">
-        <button class="btn-ghost">Log in</button>
-        <a href="contact.html" class="btn-primary">Book a demo</a>
-      </div>
-    </div>
-  </div>
-</nav>
+<!-- ══ NAV (rendered by scripts.js — see renderNav) ═══════════ -->
+<nav></nav>
 
 <!-- ══ HERO ══════════════════════════════════════════════════ -->
 <section class="hero" id="home">
   <div class="container">
     <div class="hero-grid">
       <div>
-        <div class="hero-eyebrow"><span>IDmeta — APAC Identity Verification Platform</span></div>
         <h1>Verify and validate to the <em>government source</em> — not just the document.</h1>
         <p class="hero-sub">IDmeta is the only identity verification platform with direct, licensed access to the region’s national identity systems — PhilSys, Dukcapil, AU IDmatch, NBI, PRC and TIN — combined with AI-driven biometrics, deepfake detection, and continuous screening against 45,000+ global watchlists. One platform, one API, verified at the source.</p>
         <div class="hero-ctas">
-          <button class="btn-primary-lg">Free Trial <span>→</span></button>
+          <a href="contact.html" class="btn-primary-lg">Free Trial <span>→</span></a>
         </div>
       </div>
       <div class="hero-right">
@@ -206,7 +198,7 @@
 </section>
 
 <!-- ══ PLATFORM / PRODUCTS ═══════════════════════════════════ -->
-<section class="platform" id="platform" style="padding:80px 0">
+<section class="platform" id="platform">
   <div class="container">
     <span class="section-label" style="color:var(--sky)">IDmeta Platform</span>
     <h2 class="platform-title">One platform. Every verification need.</h2>
@@ -436,7 +428,7 @@
 <section class="apac" id="apac">
   <div class="container">
     <span class="section-label" style="color:var(--sky)">APAC Coverage</span>
-    <h2 class="section-title">The only platform with licensed access to all seven APAC national identity sources</h2>
+    <h2 class="section-title">An end to end verification and compliance platform with enhanced government data source validations.</h2>
     <p class="section-sub">Five markets, five rulebooks. Generic providers ship one eKYC layer and leave the gaps to you. IDmeta verifies at the government source in every market.</p>
     <div class="apac-panel" id="apac-panel">
       <div class="apac-main">
@@ -526,33 +518,54 @@
     <h2 class="section-title">How APAC businesses put IDmeta to work</h2>
     <p class="section-sub">Illustrative outcomes based on typical deployments — not audited case data. We’ll publish referenceable, signed-off case studies as they become available.</p>
     <div class="cases-grid" id="cases-grid">
-      <div class="case-card c1">
-        <span class="case-chip">PH · Digital Lending</span>
+      <article class="case-card">
+        <div class="case-head">
+          <span class="case-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M8.8 14.6l2.4-2.9 2 1.9 2.6-3.4"/><path d="M10.5 18.8h3"/></svg>
+          </span>
+          <span class="case-id">
+            <h3 class="case-sector">Digital Lending</h3>
+            <span class="case-market">PH · Philippines</span>
+          </span>
+        </div>
         <div class="case-hero">
           <span class="val" data-target="6" data-prefix="" data-suffix=" min">6 min</span>
           <span class="lbl">Typical processing time, down from ~3 days</span>
         </div>
         <p class="case-narr">A Philippines-based digital lender integrated IDmeta’s PhilSys validation to replace manual ID review. Loan application processing time fell from roughly three days to under six minutes, with a meaningful reduction in manual review workload and fraud-related write-offs, alongside a modest lift in approval rates.</p>
-        <span class="case-tag">Illustrative outcome · Digital lending, Philippines</span>
-      </div>
-      <div class="case-card c2">
-        <span class="case-chip">ID · Rural Banking</span>
+      </article>
+      <article class="case-card">
+        <div class="case-head">
+          <span class="case-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.2 9.6L12 4.2l8.8 5.4"/><path d="M5.8 11.4v7.2M9.9 11.4v7.2M14.1 11.4v7.2M18.2 11.4v7.2"/><path d="M3.4 20.4h17.2"/></svg>
+          </span>
+          <span class="case-id">
+            <h3 class="case-sector">Rural Banking</h3>
+            <span class="case-market">ID · Indonesia</span>
+          </span>
+        </div>
         <div class="case-hero">
           <span class="val" data-target="2" data-prefix="~" data-suffix=" weeks">~2 weeks</span>
           <span class="lbl">From signed contract to live verification</span>
         </div>
         <p class="case-narr">A rural bank in Indonesia went from signed contract to live verification in about two weeks using IDmeta’s Dukcapil integration. Field staff now verify customers in remote villages over a standard mobile browser on a low-bandwidth connection — no app installation required.</p>
-        <span class="case-tag">Illustrative outcome · Rural banking, Indonesia</span>
-      </div>
-      <div class="case-card c3">
-        <span class="case-chip">AU · FinTech</span>
+      </article>
+      <article class="case-card">
+        <div class="case-head">
+          <span class="case-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.9l7 2.6v5.7c0 4.2-2.9 8.1-7 9.5-4.1-1.4-7-5.3-7-9.5V5.5z"/><path d="M9 12.2l2.2 2.2 4.2-4.4"/></svg>
+          </span>
+          <span class="case-id">
+            <h3 class="case-sector">FinTech</h3>
+            <span class="case-market">AU · Australia</span>
+          </span>
+        </div>
         <div class="case-hero">
           <span class="val" data-target="12" data-prefix="1 of " data-suffix="">1 of 12</span>
           <span class="lbl">AU-authorised IDmatch (DVS) providers</span>
         </div>
         <p class="case-narr">An Australian fintech used IDmeta’s IDmatch-authorised access to combine real-time document verification with AUSTRAC-aligned screening. The business described its subsequent regulatory audit as straightforward, alongside an improved verification pass rate and lower fraud losses.</p>
-        <span class="case-tag">Illustrative outcome · FinTech, Australia</span>
-      </div>
+      </article>
     </div>
   </div>
 </section>
@@ -587,23 +600,22 @@
             <div class="roi-desc">Banks' reported return on AI fraud detection</div>
           </div>
         </div>
-        <p style="font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.5);margin:2px 0 24px;max-width:560px">Directional industry benchmarks for automated identity verification and biometric screening — not a guarantee of IDmeta results. Reported ROI on AI-driven fraud detection typically pays back within one to two years, depending on each lender’s review costs, fraud rate and approval funnel.</p>
         <div class="roi-model">
         <h3>Illustrative Savings Model</h3>
         <span class="roi-chip">Lender · 5,000 applicants/month</span>
-        <p style="font-size:12px;line-height:1.55;color:rgba(255,255,255,.45);margin:10px 0 2px">Example only, based on the assumptions below. Actual results vary by portfolio, market and baseline process cost.</p>
+        <p class="roi-note"><b>Example only</b> — based on the assumptions below. Actual results vary by portfolio, market and baseline process cost.</p>
         <div class="roi-rows">
           <div class="roi-row" style="transition-delay:.15s">
             <span class="roi-row-lbl"><span class="roi-row-dot" style="background:var(--sky)"></span>Manual review cost saved (80%)</span>
             <span class="roi-row-val" style="color:var(--sky)">$32,000/mo</span>
           </div>
           <div class="roi-row" style="transition-delay:.3s">
-            <span class="roi-row-lbl"><span class="roi-row-dot" style="background:var(--green)"></span>New revenue — reduced drop-off (15%)</span>
-            <span class="roi-row-val" style="color:var(--green)">$150,000/mo</span>
+            <span class="roi-row-lbl"><span class="roi-row-dot" style="background:var(--sky)"></span>New revenue — reduced drop-off (15%)</span>
+            <span class="roi-row-val" style="color:var(--sky)">$150,000/mo</span>
           </div>
           <div class="roi-row" style="transition-delay:.45s">
-            <span class="roi-row-lbl"><span class="roi-row-dot" style="background:var(--amber)"></span>Fraud losses prevented (75%)</span>
-            <span class="roi-row-val" style="color:var(--amber)">$11,250/mo</span>
+            <span class="roi-row-lbl"><span class="roi-row-dot" style="background:var(--sky)"></span>Fraud losses prevented (75%)</span>
+            <span class="roi-row-val" style="color:var(--sky)">$11,250/mo</span>
           </div>
         </div>
         <div class="roi-total">
@@ -611,6 +623,7 @@
           <span class="roi-total-val" id="roi-total" data-val="2.3">$2.3M+</span>
         </div>
         </div>
+        <p class="roi-legend">*Directional industry benchmarks for automated identity verification and biometric screening. Actual ROI varies by portfolio, fraud rate and review costs.</p>
       </div>
       <div class="roi-side">
         <img src="brand_assets/women-performing-kyc.jpeg" loading="lazy" alt="Customer verifying their identity on a phone">
@@ -625,31 +638,84 @@
     <span class="section-label" style="color:var(--sky)">Trust &amp; security</span>
     <h2 class="section-title">Compliance and security you can point to</h2>
     <p class="section-sub">Regulated buyers need more than a logo — they need to see exactly what’s certified, what’s in progress, and what’s aligned to which regulator.</p>
-    <div class="tsec-grid">
-      <div class="tsec-card" style="--tc:var(--sky)">
-        <div class="tsec-top"><span class="tsec-name">ISO/IEC 27001</span><span class="tsec-pill is-certified">Certified</span></div>
-        <p class="tsec-detail">Information security management certified, with annual surveillance audits.</p>
+    <div class="tsec-wall" id="tsec-wall">
+
+      <div class="tw-cell" tabindex="0" style="--tc:var(--sky);--ih:82px">
+        <div class="tw-stage">
+          <div class="tw-mark">
+            <!-- swap for brand_assets/badges/iso-27001.svg when licensed artwork lands -->
+            <img class="tw-img" src="brand_assets/ISO%2027001.png" alt="ISO/IEC 27001 certified" loading="lazy" width="177" height="82">
+          </div>
+          <div class="tw-body">
+            <span class="tw-pill">Certified</span>
+            <p class="tw-detail"><b>ISO/IEC 27001</b> — information security management certified, with annual surveillance audits.</p>
+          </div>
+        </div>
       </div>
-      <div class="tsec-card" style="--tc:var(--green)">
-        <div class="tsec-top"><span class="tsec-name">iBeta PAD Level 2</span><span class="tsec-pill is-progress">In progress</span></div>
-        <p class="tsec-detail">ISO/IEC 30107-3 Presentation Attack Detection certification — currently in progress, not yet certified.</p>
+
+      <div class="tw-cell" tabindex="0" style="--tc:var(--sky);--ih:112px">
+        <div class="tw-stage">
+          <div class="tw-mark">
+            <img class="tw-img" src="brand_assets/AUSTRAC.png" alt="Australian Government AUSTRAC" loading="lazy" width="199" height="112">
+          </div>
+          <div class="tw-body">
+            <span class="tw-pill">Aligned</span>
+            <p class="tw-detail"><b>AUSTRAC</b> — one of a small number of AU Government-authorised IDmatch (DVS) providers; designed for AML/CTF Act obligations.</p>
+          </div>
+        </div>
       </div>
-      <div class="tsec-card" style="--tc:var(--sky)">
-        <div class="tsec-top"><span class="tsec-name">AUSTRAC alignment</span><span class="tsec-pill is-aligned">Aligned</span></div>
-        <p class="tsec-detail">One of a small number of AU Government-authorised IDmatch (DVS) providers; designed for AUSTRAC AML/CTF Act obligations.</p>
+
+      <div class="tw-cell" tabindex="0" style="--tc:var(--sky);--ih:100px">
+        <div class="tw-stage">
+          <div class="tw-mark">
+            <img class="tw-img" src="brand_assets/AMLC.png" alt="Bangko Sentral ng Pilipinas and AMLC" loading="lazy" width="200" height="100">
+          </div>
+          <div class="tw-body">
+            <span class="tw-pill">Aligned</span>
+            <p class="tw-detail"><b>BSP &amp; AMLC</b> — meets BSP Circulars 950, 1122 and 1170; AFASA-ready ahead of the June 2026 deadline.</p>
+          </div>
+        </div>
       </div>
-      <div class="tsec-card" style="--tc:var(--sky)">
-        <div class="tsec-top"><span class="tsec-name">BSP &amp; AMLC alignment</span><span class="tsec-pill is-aligned">Aligned</span></div>
-        <p class="tsec-detail">Meets BSP Circulars 950, 1122 and 1170; AFASA-ready ahead of the June 2026 deadline.</p>
+
+      <div class="tw-cell" tabindex="0" style="--tc:var(--sky);--ih:100px">
+        <div class="tw-stage">
+          <div class="tw-mark">
+            <img class="tw-img" src="brand_assets/OJK.png" alt="Otoritas Jasa Keuangan (OJK)" loading="lazy" width="208" height="100">
+          </div>
+          <div class="tw-body">
+            <span class="tw-pill">Aligned</span>
+            <p class="tw-detail"><b>OJK &amp; BI</b> — satisfies POJK 12/POJK.01/2017 eKYC requirements; Dukcapil integration aligned with Indonesia’s Data Protection Law.</p>
+          </div>
+        </div>
       </div>
-      <div class="tsec-card" style="--tc:var(--sky)">
-        <div class="tsec-top"><span class="tsec-name">OJK &amp; BI alignment</span><span class="tsec-pill is-aligned">Aligned</span></div>
-        <p class="tsec-detail">Satisfies POJK 12/POJK.01/2017 eKYC requirements; Dukcapil integration aligned with Indonesia’s Data Protection Law.</p>
+
+      <div class="tw-cell" tabindex="0" style="--tc:var(--sky);--ih:150px">
+        <div class="tw-stage">
+          <div class="tw-mark">
+            <img class="tw-img" src="brand_assets/BNM.png" alt="Bank Negara Malaysia" loading="lazy" width="150" height="150">
+          </div>
+          <div class="tw-body">
+            <span class="tw-pill">Aligned</span>
+            <p class="tw-detail"><b>BNM</b> — built to Bank Negara Malaysia’s e-KYC Policy Document (April 2024 revision); false acceptance rate held below 5%.</p>
+          </div>
+        </div>
       </div>
-      <div class="tsec-card" style="--tc:var(--sky)">
-        <div class="tsec-top"><span class="tsec-name">BNM alignment</span><span class="tsec-pill is-aligned">Aligned</span></div>
-        <p class="tsec-detail">Built to Bank Negara Malaysia’s e-KYC Policy Document (April 2024 revision); false acceptance rate held below 5%.</p>
+
+      <div class="tw-cell" tabindex="0" style="--tc:var(--green);--ih:86px">
+        <div class="tw-stage">
+          <div class="tw-mark">
+            <img class="tw-img" src="brand_assets/iBeta%20Level%202.png" alt="iBeta Level 2 ISO 30107-3 presentation attack detection" loading="lazy" width="204" height="86">
+          </div>
+          <!-- the badge artwork reads "COMPLIANT"; this states the real status without needing a hover -->
+          <div class="tw-note"><span class="tw-pill">In progress</span></div>
+          <div class="tw-body">
+            <span class="tw-pill">In progress</span>
+            <p class="tw-detail"><b>iBeta PAD Level 2</b> — ISO/IEC 30107-3 Presentation Attack Detection certification, currently in progress, not yet certified.</p>
+          </div>
+        </div>
       </div>
+
+
     </div>
   </div>
 </section>
@@ -767,53 +833,19 @@
 <section class="cta-banner">
   <div class="container">
     <div class="cta-inner">
-      <img src="brand_assets/horizontal-logo.png" alt="IDmeta" style="height:32px;margin:0 auto 24px">
+      <img src="brand_assets/IDmeta - Primary Logo Reverse.svg" alt="IDmeta" style="height:32px;margin:0 auto 24px">
       <h2>Establish trust from the first click.</h2>
       <p>Book a 20-minute IDmeta demo. We'll walk you through the exact workflow for your market, your industry, and your compliance requirements.</p>
       <div class="cta-buttons">
         <a href="contact.html" class="btn-primary-lg">Book a demo →</a>
-        <button class="btn-outline-lg">Talk to sales</button>
       </div>
       <p style="margin-top:20px;font-size:13px;color:rgba(255,255,255,.3)">AU · SG · MY · PH · ID &nbsp;|&nbsp; verify@idmetagroup.com &nbsp;|&nbsp; www.idmetagroup.com</p>
     </div>
   </div>
 </section>
 
-<!-- ══ FOOTER ════════════════════════════════════════════════ -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">
-          <img src="brand_assets/horizontal-logo.png" alt="IDmeta">
-        </div>
-        <p class="footer-tagline">IDmeta is APAC’s end-to-end identity trust and compliance platform: eKYC, KYB, AML screening, and transaction monitoring, unified in one dashboard and one API. We verify customers at the government source, with direct accredited access to national identity data source across Australia, the Philippines, Indonesia and Malaysia backed by AI-driven biometrics and deepfake detection. Fully customizable Trustflows let you create the exact verification journey your business and regulator require, deployed in days via API, SDK, or no-code Direct Link. Onboard genuine customers in seconds, block fraud before it costs you, and stay audit-ready automatically.</p>
-        <div class="footer-social">
-          <a class="social-btn" href="https://www.linkedin.com/company/idmeta-group" target="_blank" rel="noopener noreferrer">in</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <a href="https://www.linkedin.com/company/idmeta-group" target="_blank" rel="noopener noreferrer">About IDmeta</a>
-        <a href="#industries">Customers</a>
-        <a href="#">Developer Docs</a>
-        <a href="#">Blog &amp; Resources</a>
-        <a href="https://www.linkedin.com/company/idmeta-group" target="_blank" rel="noopener noreferrer">Careers</a>
-        <a href="kyt.html">Transaction Monitoring (KYT)</a>
-        <a href="partners-delphix.html">Delphix Test Data</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 IDmeta Group Pty Ltd. All rights reserved. Melbourne, Australia · Singapore · Kuala Lumpur · Manila · Jakarta</p>
-      <div class="footer-bottom-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Cookie Settings</a>
-      </div>
-    </div>
-  </div>
-</footer>
+<!-- ══ FOOTER (rendered by scripts.js — see renderFooter) ══════ -->
+<footer></footer>
 
 </body>
 </html>

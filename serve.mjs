@@ -25,7 +25,7 @@ const mime = {
 };
 
 const server = createServer(async (req, res) => {
-  const url = req.url.split('?')[0];
+  const url = decodeURIComponent(req.url.split('?')[0]);
   let filePath = join(__dirname, url === '/' ? 'index.html' : url);
   const ext = extname(filePath).toLowerCase();
   const contentType = mime[ext] || 'application/octet-stream';

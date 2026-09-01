@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IDmeta KYT — Transaction Monitoring You Can Explain to Your Regulator</title>
 <meta name="description" content="IDmeta KYT clusters customers by observed behaviour, tunes rule thresholds per cluster, and lets you simulate a change before deploying it — cutting a reference bank's alert queue by 91% while roughly doubling the true positive rate.">
+<link rel="icon" href="favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+<link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Work+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -275,19 +278,22 @@
 <nav>
   <div class="container">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo"><img src="brand_assets/horizontal-logo.png" alt="IDmeta"></a>
+      <a href="index.html" class="nav-logo"><img src="brand_assets/IDmeta - Primary Logo Reverse.svg" alt="IDmeta"></a>
       <div class="nav-links">
         <a href="index.html#platform">Platform</a>
-        <a href="index.html#products">Products</a>
-        <a href="kyt.html" class="active">KYT</a>
-        <a href="index.html#apac">APAC Coverage</a>
-        <a href="partners-delphix.html">Partners</a>
         <a href="https://docs.idmetagroup.com" target="_blank" rel="noopener noreferrer">Developers</a>
         <a href="contact.html">Contact</a>
       </div>
       <div class="nav-actions">
-        <button class="btn-ghost">Log in</button>
         <a href="contact.html" class="btn-primary">Book a demo</a>
+      </div>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+      <label for="nav-toggle" class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></label>
+      <div class="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="https://docs.idmetagroup.com/verification-types" target="_blank" rel="noopener noreferrer">Products</a>
+        <a href="https://docs.idmetagroup.com/welcome" target="_blank" rel="noopener noreferrer">Developers</a>
+        <a href="contact.html">Contact Us</a>
       </div>
     </div>
   </div>
@@ -705,7 +711,7 @@
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <img src="brand_assets/horizontal-logo.png" alt="IDmeta">
+          <img src="brand_assets/IDmeta - Primary Logo Reverse.svg" alt="IDmeta">
         </div>
         <p class="footer-tagline">IDmeta is APAC's end-to-end identity trust and compliance platform: eKYC, KYB, AML screening, and transaction monitoring, unified in one dashboard and one API. IDmeta KYT clusters customers by observed behaviour, tunes rule thresholds per cluster, and lets you simulate a proposed change against your own historical data before deploying it — with built-in link analysis and regulator-format reporting.</p>
         <div class="footer-social">
@@ -727,12 +733,65 @@
         <a href="kyt.html#results">Results</a>
         <a href="kyt.html#regulatory">Regulatory context</a>
       </div>
+      <div class="footer-col-group">
+      <div class="footer-col footer-col-products">
+        <h4>Products</h4>
+        <div class="footer-products-grid">
+          <div class="footer-subcol">
+            <h5>Compliance</h5>
+            <a href="https://docs.idmetagroup.com/products/kyc/docu-veri" target="_blank" rel="noopener noreferrer">Document Verification</a>
+            <a href="https://docs.idmetagroup.com/products/kyc/biometrics-verification" target="_blank" rel="noopener noreferrer">Biometrics Verification</a>
+            <a href="https://docs.idmetagroup.com/products/kyc/biometrics-face-match" target="_blank" rel="noopener noreferrer">Biometrics Face Compare</a>
+            <a href="https://docs.idmetagroup.com/products/kyc/watchlist-and-aml-screening" target="_blank" rel="noopener noreferrer">Watchlist and AML Screening</a>
+            <a href="https://docs.idmetagroup.com/products/kyc/email-verification" target="_blank" rel="noopener noreferrer">Email Verification</a>
+            <a href="https://docs.idmetagroup.com/products/kyc/phone-number-verification" target="_blank" rel="noopener noreferrer">Phone Number Verification</a>
+          </div>
+          <div class="footer-subcol">
+            <h5>Philippines Govt Checks</h5>
+            <a href="https://docs.idmetagroup.com/products/government-data-ph/ph-philsys-check" target="_blank" rel="noopener noreferrer">Philsys Verification</a>
+            <a href="https://docs.idmetagroup.com/products/government-data-ph/ph-lto-drivers-licence" target="_blank" rel="noopener noreferrer">Driver License Verification</a>
+            <a href="https://docs.idmetagroup.com/products/government-data-ph/overview" target="_blank" rel="noopener noreferrer">View All</a>
+          </div>
+          <div class="footer-subcol">
+            <h5>Indonesia Dukcapil</h5>
+            <a href="https://docs.idmetagroup.com/products/government-data-id/dukcapil-data-full" target="_blank" rel="noopener noreferrer">KTP Verification</a>
+            <a href="https://docs.idmetagroup.com/products/government-data-id/income-verification" target="_blank" rel="noopener noreferrer">Income Verification</a>
+            <a href="https://docs.idmetagroup.com/products/government-data-id/overview" target="_blank" rel="noopener noreferrer">View All</a>
+          </div>
+          <div class="footer-subcol">
+            <h5>Australia DVS</h5>
+            <a href="https://docs.idmetagroup.com/products/government-data-au/au-passport" target="_blank" rel="noopener noreferrer">Passport Verification</a>
+            <a href="https://docs.idmetagroup.com/products/government-data-au/au-drivers-licence" target="_blank" rel="noopener noreferrer">Drivers License Verification</a>
+            <a href="https://docs.idmetagroup.com/products/government-data-au/overview" target="_blank" rel="noopener noreferrer">View All</a>
+          </div>
+          <div class="footer-subcol">
+            <h5>KYB</h5>
+            <a href="https://docs.idmetagroup.com/products/kyb/ph-kyb-comprehensive" target="_blank" rel="noopener noreferrer">Philippines KYB</a>
+            <a href="https://docs.idmetagroup.com/products/kyb/aus-kyb-comprehensive" target="_blank" rel="noopener noreferrer">Australia KYB</a>
+            <a href="https://docs.idmetagroup.com/products/kyb/aus-ubo" target="_blank" rel="noopener noreferrer">Australia UBO</a>
+            <a href="https://docs.idmetagroup.com/products/kyb/idn-kyb-comprehensive" target="_blank" rel="noopener noreferrer">Indonesia KYB</a>
+            <a href="https://docs.idmetagroup.com/products/kyb/my-kyb-comprehensive" target="_blank" rel="noopener noreferrer">Malaysia KYB</a>
+            <a href="https://docs.idmetagroup.com/products/kyb/my-ubo" target="_blank" rel="noopener noreferrer">Malaysia UBO</a>
+          </div>
+          <div class="footer-subcol">
+            <h5>Onboarding</h5>
+            <a href="https://docs.idmetagroup.com/products/customize/custom-form" target="_blank" rel="noopener noreferrer">Custom Forms</a>
+            <span class="footer-disabled">e-Signature</span>
+          </div>
+        </div>
+        <a href="https://docs.idmetagroup.com/products/kyc/biometrics-detection" class="footer-viewall" target="_blank" rel="noopener noreferrer">View all products →</a>
+      </div>
       <div class="footer-col">
-        <h4>Company</h4>
+        <h4>About</h4>
         <a href="https://www.linkedin.com/company/idmeta-group" target="_blank" rel="noopener noreferrer">About IDmeta</a>
-        <a href="index.html#industries">Customers</a>
-        <a href="https://docs.idmetagroup.com" target="_blank" rel="noopener noreferrer">Developer Docs</a>
         <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Developers</h4>
+        <a href="https://docs.idmetagroup.com/integration-overview" target="_blank" rel="noopener noreferrer">Integration</a>
+        <a href="https://docs.idmetagroup.com/resources/data-handling-privacy" target="_blank" rel="noopener noreferrer">Data Handling & Privacy</a>
+        <a href="https://docs.idmetagroup.com/account/overview" target="_blank" rel="noopener noreferrer">Accounts</a>
+      </div>
       </div>
     </div>
     <div class="footer-bottom">

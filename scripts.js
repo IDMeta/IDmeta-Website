@@ -1,3 +1,125 @@
+/* ── Shared nav + footer: single source of truth, rendered into every page's
+   empty <nav></nav> / <footer></footer> shell based on <body data-page="…"> ── */
+(function(){
+  const nav = document.querySelector('nav');
+  if(!nav) return;
+  const page = document.body.dataset.page;
+  const isHome = page === 'home';
+  const home = isHome ? '#' : 'index.html';
+  const platform = isHome ? '#platform' : 'index.html#platform';
+  nav.innerHTML = `
+    <div class="container">
+      <div class="nav-inner">
+        <a href="${home}" class="nav-logo"><img src="brand_assets/IDmeta - Primary Logo Reverse.svg" alt="IDmeta"></a>
+        <div class="nav-links">
+          <a href="${platform}"${isHome ? ' class="active"' : ''}>Platform</a>
+          <a href="${platform}">Products</a>
+          <a href="https://docs.idmetagroup.com" target="_blank" rel="noopener noreferrer">Developers</a>
+          <a href="contact.html"${page === 'contact' ? ' class="active"' : ''}>Contact</a>
+        </div>
+        <div class="nav-actions">
+          <a href="contact.html" class="btn-primary">Book a demo</a>
+        </div>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+        <label for="nav-toggle" class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></label>
+        <div class="mobile-menu">
+          <a href="index.html">Home</a>
+          <a href="${platform}">Products</a>
+          <a href="https://docs.idmetagroup.com/welcome" target="_blank" rel="noopener noreferrer">Developers</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </div>
+    </div>`;
+
+  const toggle = nav.querySelector('.nav-toggle-input');
+  nav.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('click', () => { toggle.checked = false; }));
+})();
+
+(function(){
+  const footer = document.querySelector('footer');
+  if(!footer) return;
+  footer.innerHTML = `
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-tagline">IDmeta is APAC’s end-to-end identity trust and compliance platform: eKYC, KYB, AML screening, and transaction monitoring, unified in one dashboard and one API. We verify customers at the government source, with direct accredited access to national identity data source across Australia, the Philippines, Indonesia and Malaysia backed by AI-driven biometrics and deepfake detection. Fully customizable Trustflows let you create the exact verification journey your business and regulator require, deployed in days via API, SDK, or no-code Direct Link. Onboard genuine customers in seconds, block fraud before it costs you, and stay audit-ready automatically.</p>
+          <div class="footer-social">
+            <a class="social-btn" href="https://www.linkedin.com/company/idmeta-group" target="_blank" rel="noopener noreferrer">in</a>
+          </div>
+        </div>
+        <div class="footer-col-group">
+        <div class="footer-col footer-col-products">
+          <h4>Products</h4>
+          <div class="footer-products-grid">
+            <div class="footer-subcol">
+              <h5>Compliance</h5>
+              <a href="https://docs.idmetagroup.com/products/kyc/docu-veri" target="_blank" rel="noopener noreferrer">Document Verification</a>
+              <a href="https://docs.idmetagroup.com/products/kyc/biometrics-verification" target="_blank" rel="noopener noreferrer">Biometrics Verification</a>
+              <a href="https://docs.idmetagroup.com/products/kyc/biometrics-face-match" target="_blank" rel="noopener noreferrer">Biometrics Face Compare</a>
+              <a href="https://docs.idmetagroup.com/products/kyc/watchlist-and-aml-screening" target="_blank" rel="noopener noreferrer">Watchlist and AML Screening</a>
+              <a href="https://docs.idmetagroup.com/products/kyc/email-verification" target="_blank" rel="noopener noreferrer">Email Verification</a>
+              <a href="https://docs.idmetagroup.com/products/kyc/phone-number-verification" target="_blank" rel="noopener noreferrer">Phone Number Verification</a>
+            </div>
+            <div class="footer-subcol">
+              <h5>Philippines Govt Checks</h5>
+              <a href="https://docs.idmetagroup.com/products/government-data-ph/ph-philsys-check" target="_blank" rel="noopener noreferrer">Philsys Verification</a>
+              <a href="https://docs.idmetagroup.com/products/government-data-ph/ph-lto-drivers-licence" target="_blank" rel="noopener noreferrer">Driver License Verification</a>
+              <a href="https://docs.idmetagroup.com/products/government-data-ph/overview" target="_blank" rel="noopener noreferrer">View All</a>
+            </div>
+            <div class="footer-subcol">
+              <h5>Indonesia Dukcapil</h5>
+              <a href="https://docs.idmetagroup.com/products/government-data-id/dukcapil-data-full" target="_blank" rel="noopener noreferrer">KTP Verification</a>
+              <a href="https://docs.idmetagroup.com/products/government-data-id/income-verification" target="_blank" rel="noopener noreferrer">Income Verification</a>
+              <a href="https://docs.idmetagroup.com/products/government-data-id/overview" target="_blank" rel="noopener noreferrer">View All</a>
+            </div>
+            <div class="footer-subcol">
+              <h5>Australia DVS</h5>
+              <a href="https://docs.idmetagroup.com/products/government-data-au/au-passport" target="_blank" rel="noopener noreferrer">Passport Verification</a>
+              <a href="https://docs.idmetagroup.com/products/government-data-au/au-drivers-licence" target="_blank" rel="noopener noreferrer">Drivers License Verification</a>
+              <a href="https://docs.idmetagroup.com/products/government-data-au/overview" target="_blank" rel="noopener noreferrer">View All</a>
+            </div>
+            <div class="footer-subcol">
+              <h5>KYB</h5>
+              <a href="https://docs.idmetagroup.com/products/kyb/ph-kyb-comprehensive" target="_blank" rel="noopener noreferrer">Philippines KYB</a>
+              <a href="https://docs.idmetagroup.com/products/kyb/aus-kyb-comprehensive" target="_blank" rel="noopener noreferrer">Australia KYB</a>
+              <a href="https://docs.idmetagroup.com/products/kyb/aus-ubo" target="_blank" rel="noopener noreferrer">Australia UBO</a>
+              <a href="https://docs.idmetagroup.com/products/kyb/idn-kyb-comprehensive" target="_blank" rel="noopener noreferrer">Indonesia KYB</a>
+              <a href="https://docs.idmetagroup.com/products/kyb/my-kyb-comprehensive" target="_blank" rel="noopener noreferrer">Malaysia KYB</a>
+              <a href="https://docs.idmetagroup.com/products/kyb/my-ubo" target="_blank" rel="noopener noreferrer">Malaysia UBO</a>
+            </div>
+            <div class="footer-subcol">
+              <h5>Onboarding</h5>
+              <a href="https://docs.idmetagroup.com/products/customize/custom-form" target="_blank" rel="noopener noreferrer">Custom Forms</a>
+              <span class="footer-disabled">e-Signature</span>
+            </div>
+          </div>
+          <a href="https://docs.idmetagroup.com/products/kyc/biometrics-detection" class="footer-viewall" target="_blank" rel="noopener noreferrer">View all products →</a>
+        </div>
+        <div class="footer-col">
+          <h4>About</h4>
+          <a href="https://www.linkedin.com/company/idmeta-group" target="_blank" rel="noopener noreferrer">About IDmeta</a>
+          <a href="https://www.linkedin.com/company/idmeta-group" target="_blank" rel="noopener noreferrer">Careers</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Developers</h4>
+          <a href="https://docs.idmetagroup.com/integration-overview" target="_blank" rel="noopener noreferrer">Integration</a>
+          <a href="https://docs.idmetagroup.com/resources/data-handling-privacy" target="_blank" rel="noopener noreferrer">Data Handling &amp; Privacy</a>
+          <a href="https://docs.idmetagroup.com/account/overview" target="_blank" rel="noopener noreferrer">Accounts</a>
+        </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 IDmeta Group Pty Ltd. All rights reserved. Melbourne, Australia · Singapore · Kuala Lumpur · Manila · Jakarta</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Settings</a>
+        </div>
+      </div>
+    </div>`;
+})();
+
 const markets = {
   ph:{title:'Philippines',desc:'BSP Circulars 950, 1122 &amp; 1170 set strict eKYC rules; AFASA mandates fraud controls by June 2026. IDmeta meets all of it out of the box.',
     idsys:'PhilSys / PSA, plus NBI, PRC and TIN/BIR',quirk:'AFASA fraud controls due June 2026',
@@ -454,4 +576,17 @@ addEventListener('load',lockApacDetailHeight);
   new IntersectionObserver(es=>es.forEach(e=>{
     if(!manual) grid.classList.toggle('running', e.isIntersecting);
   }),{threshold:.35}).observe(grid);
+})();
+/* ── Trust & security: staggered credential-wall reveal ── */
+(function(){
+  const wall = document.getElementById('tsec-wall');
+  if(!wall || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const cells = [...wall.querySelectorAll('.tw-cell')];
+  wall.classList.add('tw-reveal');
+  cells.forEach((c,k)=>c.style.setProperty('--d',(k*80)+'ms'));
+  /* threshold 0 + a bottom margin: the wall is taller than a phone viewport,
+     so a fractional threshold would never fire on small screens */
+  new IntersectionObserver((es,io)=>es.forEach(e=>{
+    if(e.isIntersecting){ cells.forEach(c=>c.classList.add('in')); io.disconnect(); }
+  }),{threshold:0,rootMargin:'0px 0px -12% 0px'}).observe(wall);
 })();
