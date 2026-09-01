@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IDmeta — Establish Trust from the First Click</title>
+<meta name="description" content="IDmeta is the APAC-native identity verification platform with direct, licensed access to PhilSys, Dukcapil, AU IDmatch, NBI, PRC and TIN. eKYC, AML, biometrics and KYB in one API.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Work+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="scripts.js" defer></script>
+</head>
+<body data-page="home">
+
+<!-- ══ NAV ══════════════════════════════════════════════════ -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo"><img src="brand_assets/horizontal-logo.png" alt="IDmeta"></a>
+      <div class="nav-links">
+        <a href="#platform" class="active">Platform</a>
+        <a href="#products">Products</a>
+        <a href="kyt.html">KYT</a>
+        <a href="#apac">APAC Coverage</a>
+        <a href="partners-delphix.html">Partners</a>
+        <a href="https://docs.idmetagroup.com" target="_blank" rel="noopener noreferrer">Developers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="btn-ghost">Log in</button>
+        <a href="contact.html" class="btn-primary">Book a demo</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══════════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow"><span>IDmeta — APAC Identity Verification Platform</span></div>
+        <h1>Verify and validate to the <em>government source</em> — not just the document.</h1>
+        <p class="hero-sub">IDmeta is the only identity verification platform with direct, licensed access to the region’s national identity systems — PhilSys, Dukcapil, AU IDmatch, NBI, PRC and TIN — combined with AI-driven biometrics, deepfake detection, and continuous screening against 45,000+ global watchlists. One platform, one API, verified at the source.</p>
+        <div class="hero-ctas">
+          <button class="btn-primary-lg">Free Trial <span>→</span></button>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="dashboard-frame">
+          <div class="dash-header">
+            <span class="dash-title">IDmeta — Live Verification</span>
+            <span class="dash-badge">● Real-time</span>
+          </div>
+          <div class="hv-body" id="hv" aria-hidden="true">
+            <div>
+              <div class="hv-tag cust">Your customer · 2 steps</div>
+              <div class="hv-phone">
+                <div class="hv-screenport">
+
+                  <div class="hv-screen active" data-s="0">
+                    <span class="hv-mark"></span>
+                    <div class="hvs-title">Let&rsquo;s start your verification</div>
+                    <div class="hvs-sub">In this verification, you will need:</div>
+                    <div class="hvs-card">
+                      <div class="hvs-item"><svg width="10" height="12" viewBox="0 0 10 12"><rect x="1" y="1" width="8" height="10" rx="1.5" fill="none" stroke="#3c4866" stroke-width="1.2"/><path d="M3 4.5h4M3 7h4" stroke="#3c4866" stroke-width="1.2"/></svg>Upload photos of documents proving your identity</div>
+                      <div class="hvs-item"><svg width="12" height="10" viewBox="0 0 12 10"><path d="M1 3h2.4l1-1.4h3.2l1 1.4H11v6H1z" fill="none" stroke="#3c4866" stroke-width="1.1"/><circle cx="6" cy="5.7" r="1.8" fill="none" stroke="#3c4866" stroke-width="1.1"/></svg>Take a selfie</div>
+                    </div>
+                    <button class="hv-btn waiting" tabindex="-1">Start<span class="ripple"></span></button>
+                  </div>
+
+                  <div class="hv-screen" data-s="1">
+                    <span class="hv-mark"></span>
+                    <div class="hvs-title">Document Verification</div>
+                    <span class="hvs-pill">Accepted: <b>PhilSys ID</b></span>
+                    <div class="hv-capture" id="hv-cap-f">
+                      <span class="hv-cam"><svg width="11" height="9" viewBox="0 0 12 10"><path d="M1 3h2.4l1-1.4h3.2l1 1.4H11v6H1z" fill="none" stroke="#1A1A3E" stroke-width="1.1"/><circle cx="6" cy="5.7" r="1.8" fill="none" stroke="#1A1A3E" stroke-width="1.1"/></svg></span>
+                      <span class="lbl">Front of document</span>
+                      <div class="hv-idcard"><span class="ph"></span><span style="flex:1;padding-top:2px"><span class="ln" style="width:90%"></span><span class="ln" style="width:60%"></span><span class="ln" style="width:75%"></span></span></div>
+                    </div>
+                    <div class="hv-capture" id="hv-cap-b">
+                      <span class="hv-cam"><svg width="11" height="9" viewBox="0 0 12 10"><path d="M1 3h2.4l1-1.4h3.2l1 1.4H11v6H1z" fill="none" stroke="#1A1A3E" stroke-width="1.1"/><circle cx="6" cy="5.7" r="1.8" fill="none" stroke="#1A1A3E" stroke-width="1.1"/></svg></span>
+                      <span class="lbl">Back of document</span>
+                      <div class="hv-idcard back"><span style="flex:1;padding-top:3px"><span class="ln" style="width:100%"></span><span class="ln" style="width:100%"></span><span class="ln" style="width:55%"></span></span></div>
+                    </div>
+                    <button class="hv-btn" tabindex="-1" style="margin-top:8px">Continue →<span class="ripple"></span></button>
+                  </div>
+
+                  <div class="hv-screen" data-s="2">
+                    <span class="hv-mark"></span>
+                    <div class="hvs-title">Biometrics Verification</div>
+                    <div class="hv-oval-wrap" id="hv-oval">
+                      <div class="hv-sil"></div>
+                      <svg viewBox="0 0 104 104"><circle cx="52" cy="52" r="49"/></svg>
+                    </div>
+                    <div class="hv-hint" id="hv-hint">Hold still…</div>
+                    <button class="hv-btn" tabindex="-1" style="margin-top:auto">Complete Verification<span class="ripple"></span></button>
+                  </div>
+
+                  <div class="hv-screen" data-s="3">
+                    <span class="hv-mark"></span>
+                    <div class="hv-done-check">✓</div>
+                    <div class="hvs-title">All set!</div>
+                    <div class="hvs-sub" style="max-width:120px">IDmeta is finishing up — nothing else for you to do.</div>
+                  </div>
+
+                  <div class="hv-flash" id="hv-flash"></div>
+                </div>
+                <div class="hv-dim"></div>
+              </div>
+            </div>
+            <div>
+              <div class="hv-tag sys" style="color:var(--sky);" >IDmeta · automated</div>
+              <div class="hv-sys" id="hv-sys">
+                <div class="hv-row" style="--ac:var(--sky)">
+                  <div class="hv-row-h"><span class="hv-row-name">DOCUMENT VERIFICATION</span><span class="hv-row-status">waiting</span></div>
+                  <div class="hv-fields">
+                    <div class="hv-field"><span>Full name</span><b data-v="SANTOS, MARIA C."></b></div>
+                    <div class="hv-field"><span>Birthdate</span><b data-v="14 MAR 1992"></b></div>
+                    <div class="hv-field"><span>PCN</span><b data-v="6342-1188-2241-0917"></b></div>
+                  </div>
+                </div>
+                <div class="hv-row" style="--ac:var(--sky)">
+                  <div class="hv-row-h"><span class="hv-row-name">FACE MATCH &amp; LIVENESS</span><span class="hv-row-status">waiting</span></div>
+                  <div class="hv-meter"><i></i></div>
+                </div>
+                <div class="hv-row" style="--ac:var(--sky)">
+                  <div class="hv-row-h"><span class="hv-row-name">PHILSYS VALIDATION</span><span class="hv-row-status">waiting</span></div>
+                </div>
+                <div class="hv-row" style="--ac:var(--sky)">
+                  <div class="hv-row-h"><span class="hv-row-name">AML / PEP / SANCTIONS</span><span class="hv-row-status">waiting</span></div>
+                  <div class="hv-sweep"></div>
+                </div>
+                <div class="hv-decision">
+                  <span class="ic">✓</span>
+                  <div><div class="lbl">DECISION</div><div class="val">Identity Verified — Approve onboarding</div></div>
+                </div>
+              </div>
+            </div>
+            <div class="hv-packet" id="hv-packet"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROOF BAR ══════════════════════════════════════════════ -->
+<section class="proof-bar">
+  <div class="container">
+    <div class="proof-bar-inner">
+      <div class="proof-item"><span class="proof-val">5</span><span class="proof-lbl">APAC markets with live govt database access</span></div>
+      <div class="proof-sep"></div>
+      <div class="proof-item"><span class="proof-val">45k+</span><span class="proof-lbl">Global AML, PEP &amp; sanctions databases screened</span></div>
+      <div class="proof-sep"></div>
+      <div class="proof-item"><span class="proof-val">&lt; 5s</span><span class="proof-lbl">Average end-to-end verification time</span></div>
+      <div class="proof-sep"></div>
+      <div class="proof-item"><span class="proof-val">7</span><span class="proof-lbl">National government identity sources integrated</span></div>
+      <div class="proof-sep"></div>
+      <div class="proof-item"><span class="proof-val">12</span><span class="proof-lbl">One of only 12 AU Govt authorised data source verifiers</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ THREAT ═══════════════════════════════════════════════ -->
+<section class="threat" id="why">
+  <div class="container">
+    <div class="threat-grid">
+      <div>
+        <span class="section-label">The threat is real</span>
+        <h2 class="section-title">APAC is the global epicentre of identity fraud</h2>
+        <div class="threat-stats">
+          <div class="stat-card red">
+            <div class="stat-num"><span class="stat-arrow">▲</span><span class="stat-val" data-val="121" data-suffix="%">121%</span></div>
+            <div class="stat-desc">Rise in APAC identity fraud incidents</div>
+          </div>
+          <div class="stat-card red">
+            <div class="stat-num"><span class="stat-arrow">▲</span><span class="stat-val" data-val="603" data-prefix="$" data-suffix="k">$603k</span></div>
+            <div class="stat-desc">Avg deepfake loss per financial services org</div>
+          </div>
+          <div class="stat-card red">
+            <div class="stat-num"><span class="stat-arrow">▲</span><span class="stat-val" data-val="142" data-suffix="%">142%</span></div>
+            <div class="stat-desc">YoY surge in synthetic identity attacks in APAC</div>
+          </div>
+          <div class="stat-card red">
+            <div class="stat-num"><span class="stat-arrow">▲</span><span class="stat-val" data-val="300" data-suffix="%">300%</span></div>
+            <div class="stat-desc">Rise in face-swap attacks targeting liveness systems</div>
+          </div>
+        </div>
+      </div>
+      <div class="threat-map" id="threat-map">
+        <div class="tm-head">
+          <span class="tm-title">APAC Threat Monitor</span>
+          <span class="tm-live"><i></i>LIVE</span>
+        </div>
+        <div class="tm-body">
+          <svg id="tm-svg" viewBox="0 0 455 410" role="img" aria-label="Map of APAC with fraud hotspots in the Philippines, Indonesia, Malaysia, Singapore and Australia"></svg>
+        </div>
+        <div class="tm-foot">
+          <div class="tm-feed" id="tm-feed"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PLATFORM / PRODUCTS ═══════════════════════════════════ -->
+<section class="platform" id="platform" style="padding:80px 0">
+  <div class="container">
+    <span class="section-label" style="color:var(--sky)">IDmeta Platform</span>
+    <h2 class="platform-title">One platform. Every verification need.</h2>
+    <p class="platform-sub">Configure any combination of checks in the IDmeta dashboard — and deploy in minutes via API, SDK, or no-code Direct Link.</p>
+
+    <span class="section-label" style="color:var(--sky);display:block;margin-bottom:16px">Explore each product</span>
+    <div class="spotlight" id="products">
+      <div class="spot-rail" role="tablist" aria-label="IDmeta products">
+        <button class="spot-tab active" role="tab" aria-selected="true" style="--ac:var(--sky)"><span class="spot-ic"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="3" width="13" height="10" rx="1.8"/><rect x="3.8" y="5.5" width="3" height="4" rx=".8"/><path d="M9 6h3.5M9 8.5h3.5M9 11h2.2"/></svg></span><span class="spot-tab-name">Document Verification</span><span class="spot-tab-progress"></span></button>
+        <button class="spot-tab" role="tab" aria-selected="false" style="--ac:var(--mint)"><span class="spot-ic"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 4V2.5a1 1 0 011-1H4M12 1.5h1.5a1 1 0 011 1V4M14.5 12v1.5a1 1 0 01-1 1H12M4 14.5H2.5a1 1 0 01-1-1V12"/><circle cx="8" cy="6.3" r="1.9"/><path d="M4.7 12c.6-1.7 1.8-2.6 3.3-2.6s2.7.9 3.3 2.6"/></svg></span><span class="spot-tab-name">Biometrics &amp; Deepfake Detection</span><span class="spot-tab-progress"></span></button>
+        <button class="spot-tab" role="tab" aria-selected="false" style="--ac:var(--amber)"><span class="spot-ic"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="8" cy="3.6" rx="5.5" ry="2.1"/><path d="M2.5 3.6v8.8c0 1.2 2.5 2.1 5.5 2.1s5.5-.9 5.5-2.1V3.6M2.5 8c0 1.2 2.5 2.1 5.5 2.1S13.5 9.2 13.5 8"/></svg></span><span class="spot-tab-name">Government Database Validation</span><span class="spot-tab-progress"></span></button>
+        <button class="spot-tab" role="tab" aria-selected="false" style="--ac:var(--red)"><span class="spot-ic"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6.5"/><circle cx="8" cy="8" r="3.1"/><path d="M8 8l4.4-4.4"/><circle cx="10.4" cy="10.1" r=".9" fill="currentColor" stroke="none"/></svg></span><span class="spot-tab-name">AML &amp; Compliance Screening</span><span class="spot-tab-progress"></span></button>
+        <button class="spot-tab" role="tab" aria-selected="false" style="--ac:var(--violet)"><span class="spot-ic"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="3" width="13" height="10" rx="1.8"/><path d="M2.2 4.2L8 9l5.8-4.8"/></svg></span><span class="spot-tab-name">Phone &amp; Email Risk</span><span class="spot-tab-progress"></span></button>
+        <button class="spot-tab" role="tab" aria-selected="false" style="--ac:#9ba8ff"><span class="spot-ic"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="3.2" r="1.8"/><circle cx="3.2" cy="12" r="1.8"/><circle cx="12.8" cy="12" r="1.8"/><path d="M7.1 4.8L4 10.3M8.9 4.8l3.1 5.5M5 12h6"/></svg></span><span class="spot-tab-name">Social Identity Insights</span><span class="spot-tab-progress"></span></button>
+        <button class="spot-tab" role="tab" aria-selected="false" style="--ac:var(--green)"><span class="spot-ic"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="5" width="13" height="8.5" rx="1.6"/><path d="M5.5 5V3.7a1.2 1.2 0 011.2-1.2h2.6a1.2 1.2 0 011.2 1.2V5M1.5 8.6h13"/></svg></span><span class="spot-tab-name">Employment Risk Insights</span><span class="spot-tab-progress"></span></button>
+        <button class="spot-tab" role="tab" aria-selected="false" style="--ac:var(--sky)"><span class="spot-ic"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 13.5v-10a1 1 0 011-1H9a1 1 0 011 1v10M10 6.5h2.5a1 1 0 011 1v6M14 13.5H2M4.8 5h2.4M4.8 7.5h2.4M4.8 10h2.4"/></svg></span><span class="spot-tab-name">Know Your Business (KYB)</span><span class="spot-tab-progress"></span></button>
+        <a href="https://docs.idmetagroup.com/verification-types" class="btn-primary" style="margin-top:10px;align-self:flex-start;display:inline-flex" target="_blank" rel="noopener noreferrer">View All Verifications →</a>
+      </div>
+      <div class="spot-stage">
+
+        <div class="spot-panel active" role="tabpanel" style="--ac:var(--sky)">
+          <div class="spot-visual">
+            <div class="sc-doc">
+              <span class="sc-doc-beam"></span>
+              <div class="sc-doc-photo"></div>
+              <div class="sc-doc-line" style="width:78%"></div>
+              <div class="sc-doc-line" style="width:55%"></div>
+              <div class="sc-doc-line" style="width:64%;margin-bottom:0"></div>
+              <div class="sc-doc-mrz">P&lt;PHLSANTOS&lt;&lt;MARIA&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</div>
+            </div>
+            <div class="sc-rows">
+              <span class="sc-label" style="animation-delay:.2s">Extracted &amp; verified</span>
+              <span class="sc-chip" style="animation-delay:.5s"><span class="sc-tick">✓</span> OCR auto-fill — 14 fields</span>
+              <span class="sc-chip" style="animation-delay:1s"><span class="sc-tick">✓</span> No tampering detected</span>
+              <span class="sc-chip" style="animation-delay:1.5s"><span class="sc-tick">✓</span> MRZ checksum valid</span>
+            </div>
+          </div>
+          <div class="spot-info">
+            <span class="spot-kicker badge-ai">AI-powered</span>
+            <h3>Document Verification</h3>
+            <p>OCR auto-fill, forgery &amp; tampering detection, expiry checks, MRZ validation. Instant. No manual review.</p>
+            <a href="https://docs.idmetagroup.com/products/kyc/docu-veri" class="spot-learn" target="_blank" rel="noopener noreferrer">Learn More</a>
+          </div>
+        </div>
+
+        <div class="spot-panel" role="tabpanel" style="--ac:var(--mint)">
+          <div class="spot-visual">
+            <div class="sc-face-wrap">
+              <span class="sc-face-ring"></span>
+              <span class="sc-face-ring pulse"></span>
+              <span class="sc-face-ring pulse p2"></span>
+              <div class="sc-face"><div class="sc-face-head" style="margin-bottom:30px"></div><div class="sc-face-body"></div></div>
+              <span class="sc-corner tl"></span><span class="sc-corner tr"></span><span class="sc-corner bl"></span><span class="sc-corner br"></span>
+            </div>
+            <div class="sc-rows">
+              <span class="sc-label" style="animation-delay:.2s">Passive liveness</span>
+              <span class="sc-chip" style="animation-delay:.5s"><span class="sc-tick">✓</span> Live person — 99.2% confidence</span>
+              <span class="sc-chip" style="animation-delay:1s"><span class="sc-tick">✓</span> Selfie matches ID photo</span>
+              <span class="sc-chip" style="animation-delay:1.5s"><span class="sc-tick">✓</span> No deepfake or injection signals</span>
+            </div>
+          </div>
+          <div class="spot-info">
+            <span class="spot-kicker badge-ai">AI-powered</span>
+            <h3>Biometrics &amp; Deepfake Detection</h3>
+            <p>Passive facial liveness, voice biometrics, selfie-to-ID match. Built to block AI-generated deepfakes and injection attacks.</p>
+            <a href="https://docs.idmetagroup.com/products/kyc/biometrics-verification" class="spot-learn" target="_blank" rel="noopener noreferrer">Learn More</a>
+          </div>
+        </div>
+
+        <div class="spot-panel" role="tabpanel" style="--ac:var(--amber)">
+          <div class="spot-visual">
+            <div class="sc-hub">
+              <div class="sc-hub-core">IDmeta</div>
+              <span class="sc-hub-dot"></span>
+              <span class="sc-label">Live lookup</span>
+            </div>
+            <div class="sc-srcs">
+              <span class="sc-chip" style="animation-delay:.3s"><span class="sc-tick">✓</span> PhilSys</span>
+              <span class="sc-chip" style="animation-delay:.55s"><span class="sc-tick">✓</span> Dukcapil</span>
+              <span class="sc-chip" style="animation-delay:.8s"><span class="sc-tick">✓</span> AU IDmatch</span>
+              <span class="sc-chip" style="animation-delay:1.05s"><span class="sc-tick">✓</span> NBI</span>
+              <span class="sc-chip" style="animation-delay:1.3s"><span class="sc-tick">✓</span> PRC</span>
+              <span class="sc-chip" style="animation-delay:1.55s"><span class="sc-tick">✓</span> TIN</span>
+              <span class="sc-chip" style="animation-delay:1.8s;grid-column:1/-1;justify-content:center;border-color:rgba(245,158,11,.45);color:var(--amber)">7 / 7 national sources connected</span>
+            </div>
+          </div>
+          <div class="spot-info">
+            <span class="spot-kicker badge-unique">APAC exclusive</span>
+            <h3>Government Database Validation</h3>
+            <p>Real-time cross-check with PhilSys, Dukcapil, AU IDmatch, NBI, PRC and TIN. The only provider in APAC with all seven sources.</p>
+            <a href="https://docs.idmetagroup.com/products/government-data-ph/overview" class="spot-learn" target="_blank" rel="noopener noreferrer">Learn More</a>
+          </div>
+        </div>
+
+        <div class="spot-panel" role="tabpanel" style="--ac:var(--red)">
+          <div class="spot-visual">
+            <div class="sc-radar">
+              <div class="sc-radar-sweep"></div>
+              <span class="sc-radar-blip" style="top:32%;left:62%"></span>
+              <span class="sc-radar-blip" style="top:58%;left:28%;animation-delay:.7s"></span>
+              <span class="sc-radar-blip" style="top:70%;left:66%;animation-delay:1.3s"></span>
+            </div>
+            <div class="sc-rows">
+              <span class="sc-label" style="animation-delay:.2s">Screening 45,000+ lists</span>
+              <span class="sc-chip" style="animation-delay:.5s"><span class="sc-tick">✓</span> Sanctions — no hits</span>
+              <span class="sc-chip" style="animation-delay:1s"><span class="sc-tick">✓</span> PEP databases — clear</span>
+              <span class="sc-chip" style="animation-delay:1.5s"><span class="sc-tick">✓</span> Adverse media — monitoring on</span>
+            </div>
+          </div>
+          <div class="spot-info">
+            <h3>AML &amp; Compliance Screening</h3>
+            <p>45,000+ global watchlists, PEP databases, sanctions lists and adverse media. Ongoing monitoring. BSP, BNM, OJK, MAS and AUSTRAC aligned.</p>
+            <a href="https://docs.idmetagroup.com/products/kyc/watchlist-and-aml-screening" class="spot-learn" target="_blank" rel="noopener noreferrer">Learn More</a>
+          </div>
+        </div>
+
+        <div class="spot-panel" role="tabpanel" style="--ac:var(--violet)">
+          <div class="spot-visual">
+            <div class="sc-rows" style="align-items:center">
+              <span class="sc-label">OTP delivered · +63 ••• 4417</span>
+              <div class="sc-otp">
+                <div class="sc-otp-box"><span style="animation-delay:.4s">8</span></div>
+                <div class="sc-otp-box"><span style="animation-delay:.7s">2</span></div>
+                <div class="sc-otp-box"><span style="animation-delay:1s">4</span></div>
+                <div class="sc-otp-box"><span style="animation-delay:1.3s">9</span></div>
+              </div>
+            </div>
+            <div class="sc-rows">
+              <span class="sc-chip" style="animation-delay:1.6s"><span class="sc-tick">✓</span> Carrier risk: low</span>
+              <span class="sc-chip" style="animation-delay:1.9s"><span class="sc-tick">✓</span> SIM age 4+ years</span>
+              <span class="sc-chip" style="animation-delay:2.2s"><span class="sc-tick">✓</span> Number linked to identity</span>
+            </div>
+          </div>
+          <div class="spot-info">
+            <h3>Phone &amp; Email Risk</h3>
+            <p>OTP verification, carrier risk scoring, and phone-to-identity linking. Confirm that contact details belong to the person.</p>
+            <a href="https://docs.idmetagroup.com/products/alternative-verifications" class="spot-learn" target="_blank" rel="noopener noreferrer">Learn More</a>
+          </div>
+        </div>
+
+        <div class="spot-panel" role="tabpanel" style="--ac:#9ba8ff">
+          <div class="spot-visual">
+            <div class="sc-net">
+              <span class="sc-net-line" style="top:80px;left:95px;width:70px;transform:rotate(-38deg);animation-delay:.5s"></span>
+              <span class="sc-net-line" style="top:80px;left:95px;width:78px;transform:rotate(24deg);animation-delay:.8s"></span>
+              <span class="sc-net-line" style="top:80px;left:95px;width:72px;transform:rotate(155deg);animation-delay:1.1s"></span>
+              <span class="sc-net-line" style="top:80px;left:95px;width:64px;transform:rotate(230deg);animation-delay:1.4s"></span>
+              <span class="sc-net-node core" style="top:70px;left:85px"></span>
+              <span class="sc-net-node" style="top:30px;left:144px;animation-delay:.7s"></span>
+              <span class="sc-net-node" style="top:104px;left:160px;animation-delay:1s"></span>
+              <span class="sc-net-node" style="top:104px;left:24px;animation-delay:1.3s"></span>
+              <span class="sc-net-node" style="top:26px;left:38px;animation-delay:1.6s"></span>
+            </div>
+            <div class="sc-rows">
+              <span class="sc-label" style="animation-delay:.2s">Thin-file applicant</span>
+              <span class="sc-chip" style="animation-delay:.8s"><span class="sc-tick">✓</span> Mobile linked to 6 online signals</span>
+              <span class="sc-chip" style="animation-delay:1.3s"><span class="sc-tick">✓</span> Email active since 2019</span>
+              <span class="sc-chip" style="animation-delay:1.8s"><span class="sc-tick">✓</span> Identity footprint confirmed</span>
+            </div>
+          </div>
+          <div class="spot-info">
+            <h3>Social Identity Insights</h3>
+            <p>Alternative identity verification for thin-file and unbanked applicants. Links mobile and email to online identity signals.</p>
+            <a href="https://docs.idmetagroup.com/products/alternative-verifications" class="spot-learn" target="_blank" rel="noopener noreferrer">Learn More</a>
+          </div>
+        </div>
+
+        <div class="spot-panel" role="tabpanel" style="--ac:var(--green)">
+          <div class="spot-visual">
+            <div class="sc-rows" style="align-items:center">
+              <span class="sc-label">12-month income</span>
+              <div class="sc-bars">
+                <div class="sc-bar" style="height:42%;animation-delay:.3s"></div>
+                <div class="sc-bar" style="height:58%;animation-delay:.45s"></div>
+                <div class="sc-bar" style="height:50%;animation-delay:.6s"></div>
+                <div class="sc-bar" style="height:72%;animation-delay:.75s"></div>
+                <div class="sc-bar" style="height:64%;animation-delay:.9s"></div>
+                <div class="sc-bar" style="height:88%;animation-delay:1.05s"></div>
+              </div>
+            </div>
+            <div class="sc-rows">
+              <span class="sc-chip" style="animation-delay:1.3s"><span class="sc-tick">✓</span> Income verified at source</span>
+              <span class="sc-chip" style="animation-delay:1.7s"><span class="sc-tick">✓</span> Payroll · gig · gov portals</span>
+              <span class="sc-chip" style="animation-delay:2.1s"><span class="sc-tick">✓</span> Lending-ready risk profile</span>
+            </div>
+          </div>
+          <div class="spot-info">
+            <h3>Employment Risk Insights</h3>
+            <p>Verify income and employment directly from payroll apps, gig platforms and government portals. Unlock lending for the underserved.</p>
+            <a href="https://docs.idmetagroup.com/products/government-data-id/income-verification" class="spot-learn" target="_blank" rel="noopener noreferrer">Learn More</a>
+          </div>
+        </div>
+
+        <div class="spot-panel" role="tabpanel" style="--ac:var(--sky)">
+          <div class="spot-visual">
+            <div class="sc-tree">
+              <div class="sc-tree-node">Acme Holdings Pte Ltd</div>
+              <div class="sc-tree-stem" style="animation-delay:.4s"></div>
+              <div class="sc-tree-arms">
+                <div class="sc-tree-arm">
+                  <div class="sc-tree-stem" style="animation-delay:.6s"></div>
+                  <div class="sc-tree-node" style="animation-delay:.8s">Director ✓</div>
+                </div>
+                <div class="sc-tree-arm">
+                  <div class="sc-tree-stem" style="animation-delay:.9s"></div>
+                  <div class="sc-tree-node" style="animation-delay:1.1s">UBO · 38% ✓</div>
+                </div>
+              </div>
+            </div>
+            <div class="sc-rows">
+              <span class="sc-label" style="animation-delay:.2s">Business onboarding</span>
+              <span class="sc-chip" style="animation-delay:1.4s"><span class="sc-tick">✓</span> Beneficial ownership mapped</span>
+              <span class="sc-chip" style="animation-delay:1.8s"><span class="sc-tick">✓</span> No shell-company markers</span>
+            </div>
+          </div>
+          <div class="spot-info">
+            <h3>Know Your Business (KYB)</h3>
+            <p>Verify company directors, UBOs, and beneficial ownership. Detect shell companies and business fraud at onboarding.</p>
+            <a href="https://docs.idmetagroup.com/products/category-kyb" class="spot-learn" target="_blank" rel="noopener noreferrer">Learn More</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<section class="apac" id="apac">
+  <div class="container">
+    <span class="section-label" style="color:var(--sky)">APAC Coverage</span>
+    <h2 class="section-title">The only platform with licensed access to all seven APAC national identity sources</h2>
+    <p class="section-sub">Five markets, five rulebooks. Generic providers ship one eKYC layer and leave the gaps to you. IDmeta verifies at the government source in every market.</p>
+    <div class="apac-panel" id="apac-panel">
+      <div class="apac-main">
+        <div class="apac-tabs" role="tablist" aria-label="APAC markets">
+          <button class="apac-tab active" role="tab" aria-selected="true" data-m="ph" onclick="showMarket(this,'ph')">Philippines<span class="market-progress"></span></button>
+          <button class="apac-tab" role="tab" aria-selected="false" data-m="id" onclick="showMarket(this,'id')">Indonesia<span class="market-progress"></span></button>
+          <button class="apac-tab" role="tab" aria-selected="false" data-m="au" onclick="showMarket(this,'au')">Australia<span class="market-progress"></span></button>
+          <button class="apac-tab" role="tab" aria-selected="false" data-m="my" onclick="showMarket(this,'my')">Malaysia<span class="market-progress"></span></button>
+          <button class="apac-tab" role="tab" aria-selected="false" data-m="sg" onclick="showMarket(this,'sg')">Singapore<span class="market-progress"></span></button>
+        </div>
+        <div id="market-detail" class="apac-detail" style="--mc:var(--sky)">
+          <img class="apac-flag" id="m-flag" src="https://flagcdn.com/w640/ph.png" alt="" aria-hidden="true">
+          <div class="m-inner">
+        <h3 id="m-title">Philippines</h3>
+        <p id="m-desc">BSP Circulars 950, 1122 &amp; 1170 set strict eKYC rules; AFASA mandates fraud controls by June 2026. IDmeta meets all of it out of the box.</p>
+        <div class="gfx-rows">
+          <div class="gfx-row"><span class="gfx-k">ID system</span><span class="gfx-v" id="m-idsys">PhilSys / PSA, plus NBI, PRC and TIN/BIR</span></div>
+          <div class="gfx-row"><span class="gfx-k">Watch out</span><span class="gfx-v" id="m-quirk">AFASA fraud controls due June 2026</span></div>
+        </div>
+        <div class="gfx-compare">
+          <div class="gfx-cell gfx-miss"><span class="ic">✗</span><div><strong>Generic stack</strong><span id="m-miss">OCR-only checks — no PhilSys, NBI or PRC validation</span></div></div>
+          <div class="gfx-cell gfx-win"><span class="ic">✓</span><div><strong>IDmeta</strong><span id="m-win">PhilSys at source, plus NBI, PRC and TIN — one API</span></div></div>
+        </div>
+        <div class="regs-list" id="m-regs">
+          <div class="reg-item"><span class="reg-tick">✓</span><span>Real-time PhilSys / PSA validation</span></div>
+          <div class="reg-item"><span class="reg-tick">✓</span><span>NBI clearance — criminal record check</span></div>
+          <div class="reg-item"><span class="reg-tick">✓</span><span>PRC professional licence verification</span></div>
+          <div class="reg-item"><span class="reg-tick">✓</span><span>TIN / BIR tax identity check</span></div>
+          <div class="reg-item"><span class="reg-tick">✓</span><span>AMLC screening per BSP Circular 1122</span></div>
+          <div class="reg-item"><span class="reg-tick">✓</span><span>AFASA-ready fraud controls</span></div>
+        </div>
+          </div>
+        </div>
+      </div>
+      <div class="apac-side">
+        <img src="brand_assets/men-performing-selfie-large.jpeg" loading="lazy" alt="Customer completing a selfie liveness check on their phone">
+      </div>
+    </div>
+    <div class="integrate">
+      <div class="integrate-head">
+        <h3>Integrate your way</h3>
+        <p>Three paths to production — pick the speed that fits your team.</p>
+        <a href="https://docs.idmetagroup.com" class="btn-primary" target="_blank" rel="noopener noreferrer">View developer docs →</a>
+      </div>
+      <div class="int-tiles">
+        <div class="int-tile" style="--tc:var(--sky)">
+          <div class="int-top"><svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 4L2 8l3.5 4M10.5 4L14 8l-3.5 4"/></svg><span class="int-tag">Full control</span></div>
+          <b>Full-custom API</b>
+          <small>Build every step of the verification flow your way.</small>
+          <span class="int-chip">REST · Webhooks</span>
+        </div>
+        <div class="int-tile" style="--tc:#9ba8ff">
+          <div class="int-top"><svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1.8L14 5v6L8 14.2 2 11V5z"/><path d="M2 5l6 3.2L14 5M8 8.2v6"/></svg><span class="int-tag">Days to live</span></div>
+          <b>Pre-built SDK</b>
+          <small>Drop-in verification UI for mobile and web apps.</small>
+          <span class="int-chip">Flutter</span>
+        </div>
+        <div class="int-tile" style="--tc:var(--mint)">
+          <div class="int-top"><svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2L7 9M14 2L9.5 14 7 9 2 6.5z"/></svg><span class="int-tag">Live in minutes</span></div>
+          <b>No-code Direct Link</b>
+          <small>Send a hosted verification link — zero dev required.</small>
+          <span class="int-chip">SMS · Email · QR</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INDUSTRIES ════════════════════════════════════════════ -->
+<section class="industries" id="industries">
+  <div class="container">
+    <span class="section-label" style="color:var(--sky)">Industries</span>
+    <h2 class="platform-title">Built for the businesses that power APAC’s digital transformation</h2>
+    <p class="industries-sub">IDmeta supports the businesses that power APAC’s consumer finance economy: digital lenders, fintechs and digital banks, iGaming operators, insurers, remittance providers, rural and community banks, motorcycle and vehicle finance companies, retail and BNPL platforms, and transportation operators. Each carries its own mix of fraud exposure and regulatory obligation — IDmeta configures a single platform to fit all of them.</p>
+  </div>
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker"><div class="ticker-track"><span class="tick-group"><span class="tick-item">Lending</span><span class="tick-dot"></span><span class="tick-item">FinTech &amp; Digital Banking</span><span class="tick-dot"></span><span class="tick-item">iGaming</span><span class="tick-dot"></span><span class="tick-item">Insurance</span><span class="tick-dot"></span><span class="tick-item">Remittance</span><span class="tick-dot"></span><span class="tick-item">Rural Banking</span><span class="tick-dot"></span><span class="tick-item">Motorcycle Finance</span><span class="tick-dot"></span><span class="tick-item">Retail &amp; BNPL</span><span class="tick-dot"></span><span class="tick-item">Transportation</span><span class="tick-dot"></span></span><span class="tick-group"><span class="tick-item">Lending</span><span class="tick-dot"></span><span class="tick-item">FinTech &amp; Digital Banking</span><span class="tick-dot"></span><span class="tick-item">iGaming</span><span class="tick-dot"></span><span class="tick-item">Insurance</span><span class="tick-dot"></span><span class="tick-item">Remittance</span><span class="tick-dot"></span><span class="tick-item">Rural Banking</span><span class="tick-dot"></span><span class="tick-item">Motorcycle Finance</span><span class="tick-dot"></span><span class="tick-item">Retail &amp; BNPL</span><span class="tick-dot"></span><span class="tick-item">Transportation</span><span class="tick-dot"></span></span></div></div>
+    <div class="ticker ghost rev"><div class="ticker-track"><span class="tick-group"><span class="tick-item">Remittance</span><span class="tick-dot"></span><span class="tick-item">Rural Banking</span><span class="tick-dot"></span><span class="tick-item">Motorcycle Finance</span><span class="tick-dot"></span><span class="tick-item">Retail &amp; BNPL</span><span class="tick-dot"></span><span class="tick-item">Transportation</span><span class="tick-dot"></span><span class="tick-item">Lending</span><span class="tick-dot"></span><span class="tick-item">FinTech &amp; Digital Banking</span><span class="tick-dot"></span><span class="tick-item">iGaming</span><span class="tick-dot"></span><span class="tick-item">Insurance</span><span class="tick-dot"></span></span><span class="tick-group"><span class="tick-item">Remittance</span><span class="tick-dot"></span><span class="tick-item">Rural Banking</span><span class="tick-dot"></span><span class="tick-item">Motorcycle Finance</span><span class="tick-dot"></span><span class="tick-item">Retail &amp; BNPL</span><span class="tick-dot"></span><span class="tick-item">Transportation</span><span class="tick-dot"></span><span class="tick-item">Lending</span><span class="tick-dot"></span><span class="tick-item">FinTech &amp; Digital Banking</span><span class="tick-dot"></span><span class="tick-item">iGaming</span><span class="tick-dot"></span><span class="tick-item">Insurance</span><span class="tick-dot"></span></span></div></div>
+  </div>
+  <p class="sr-only">Industries we serve: Lending, FinTech and Digital Banking, iGaming, Insurance, Remittance, Rural Banking, Motorcycle Finance, Retail and BNPL, Transportation.</p>
+</section>
+
+<!-- ══ CASE STUDIES ══════════════════════════════════════════ -->
+<section class="cases" id="customers">
+  <div class="container">
+    <span class="section-label">Customer outcomes</span>
+    <h2 class="section-title">How APAC businesses put IDmeta to work</h2>
+    <p class="section-sub">Illustrative outcomes based on typical deployments — not audited case data. We’ll publish referenceable, signed-off case studies as they become available.</p>
+    <div class="cases-grid" id="cases-grid">
+      <div class="case-card c1">
+        <span class="case-chip">PH · Digital Lending</span>
+        <div class="case-hero">
+          <span class="val" data-target="6" data-prefix="" data-suffix=" min">6 min</span>
+          <span class="lbl">Typical processing time, down from ~3 days</span>
+        </div>
+        <p class="case-narr">A Philippines-based digital lender integrated IDmeta’s PhilSys validation to replace manual ID review. Loan application processing time fell from roughly three days to under six minutes, with a meaningful reduction in manual review workload and fraud-related write-offs, alongside a modest lift in approval rates.</p>
+        <span class="case-tag">Illustrative outcome · Digital lending, Philippines</span>
+      </div>
+      <div class="case-card c2">
+        <span class="case-chip">ID · Rural Banking</span>
+        <div class="case-hero">
+          <span class="val" data-target="2" data-prefix="~" data-suffix=" weeks">~2 weeks</span>
+          <span class="lbl">From signed contract to live verification</span>
+        </div>
+        <p class="case-narr">A rural bank in Indonesia went from signed contract to live verification in about two weeks using IDmeta’s Dukcapil integration. Field staff now verify customers in remote villages over a standard mobile browser on a low-bandwidth connection — no app installation required.</p>
+        <span class="case-tag">Illustrative outcome · Rural banking, Indonesia</span>
+      </div>
+      <div class="case-card c3">
+        <span class="case-chip">AU · FinTech</span>
+        <div class="case-hero">
+          <span class="val" data-target="12" data-prefix="1 of " data-suffix="">1 of 12</span>
+          <span class="lbl">AU-authorised IDmatch (DVS) providers</span>
+        </div>
+        <p class="case-narr">An Australian fintech used IDmeta’s IDmatch-authorised access to combine real-time document verification with AUSTRAC-aligned screening. The business described its subsequent regulatory audit as straightforward, alongside an improved verification pass rate and lower fraud losses.</p>
+        <span class="case-tag">Illustrative outcome · FinTech, Australia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ROI ════════════════════════════════════════════════════ -->
+<section class="roi" id="roi">
+  <div class="container">
+    <span class="section-label">Return on investment</span>
+    <h2 class="section-title">Every investment in trust technology pays back — multiple times over</h2>
+    <p class="section-sub">Fewer fraud losses, fewer manual reviews, more approved customers. The numbers compound.</p>
+    <div class="roi-grid">
+      <div class="roi-main">
+        <div class="roi-cards">
+          <div class="roi-card">
+            <div class="roi-val">75%</div>
+            <div class="roi-lbl">Fraud Reduction</div>
+            <div class="roi-desc">Biometric &amp; AI screening cuts fraud rates</div>
+          </div>
+          <div class="roi-card">
+            <div class="roi-val">80%</div>
+            <div class="roi-lbl">Lower Verification Cost</div>
+            <div class="roi-desc">Automated KYC replaces manual review</div>
+          </div>
+          <div class="roi-card">
+            <div class="roi-val">10–20%</div>
+            <div class="roi-lbl">More Customers Approved</div>
+            <div class="roi-desc">Faster onboarding converts more applicants</div>
+          </div>
+          <div class="roi-card">
+            <div class="roi-val">400–580%</div>
+            <div class="roi-lbl">ROI in 8–24 Months</div>
+            <div class="roi-desc">Banks' reported return on AI fraud detection</div>
+          </div>
+        </div>
+        <p style="font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.5);margin:2px 0 24px;max-width:560px">Directional industry benchmarks for automated identity verification and biometric screening — not a guarantee of IDmeta results. Reported ROI on AI-driven fraud detection typically pays back within one to two years, depending on each lender’s review costs, fraud rate and approval funnel.</p>
+        <div class="roi-model">
+        <h3>Illustrative Savings Model</h3>
+        <span class="roi-chip">Lender · 5,000 applicants/month</span>
+        <p style="font-size:12px;line-height:1.55;color:rgba(255,255,255,.45);margin:10px 0 2px">Example only, based on the assumptions below. Actual results vary by portfolio, market and baseline process cost.</p>
+        <div class="roi-rows">
+          <div class="roi-row" style="transition-delay:.15s">
+            <span class="roi-row-lbl"><span class="roi-row-dot" style="background:var(--sky)"></span>Manual review cost saved (80%)</span>
+            <span class="roi-row-val" style="color:var(--sky)">$32,000/mo</span>
+          </div>
+          <div class="roi-row" style="transition-delay:.3s">
+            <span class="roi-row-lbl"><span class="roi-row-dot" style="background:var(--green)"></span>New revenue — reduced drop-off (15%)</span>
+            <span class="roi-row-val" style="color:var(--green)">$150,000/mo</span>
+          </div>
+          <div class="roi-row" style="transition-delay:.45s">
+            <span class="roi-row-lbl"><span class="roi-row-dot" style="background:var(--amber)"></span>Fraud losses prevented (75%)</span>
+            <span class="roi-row-val" style="color:var(--amber)">$11,250/mo</span>
+          </div>
+        </div>
+        <div class="roi-total">
+          <span class="roi-total-lbl">Est. annual impact</span>
+          <span class="roi-total-val" id="roi-total" data-val="2.3">$2.3M+</span>
+        </div>
+        </div>
+      </div>
+      <div class="roi-side">
+        <img src="brand_assets/women-performing-kyc.jpeg" loading="lazy" alt="Customer verifying their identity on a phone">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRUST & SECURITY ═══════════════════════════════════════ -->
+<section class="tsec" id="trust">
+  <div class="container">
+    <span class="section-label" style="color:var(--sky)">Trust &amp; security</span>
+    <h2 class="section-title">Compliance and security you can point to</h2>
+    <p class="section-sub">Regulated buyers need more than a logo — they need to see exactly what’s certified, what’s in progress, and what’s aligned to which regulator.</p>
+    <div class="tsec-grid">
+      <div class="tsec-card" style="--tc:var(--sky)">
+        <div class="tsec-top"><span class="tsec-name">ISO/IEC 27001</span><span class="tsec-pill is-certified">Certified</span></div>
+        <p class="tsec-detail">Information security management certified, with annual surveillance audits.</p>
+      </div>
+      <div class="tsec-card" style="--tc:var(--green)">
+        <div class="tsec-top"><span class="tsec-name">iBeta PAD Level 2</span><span class="tsec-pill is-progress">In progress</span></div>
+        <p class="tsec-detail">ISO/IEC 30107-3 Presentation Attack Detection certification — currently in progress, not yet certified.</p>
+      </div>
+      <div class="tsec-card" style="--tc:var(--sky)">
+        <div class="tsec-top"><span class="tsec-name">AUSTRAC alignment</span><span class="tsec-pill is-aligned">Aligned</span></div>
+        <p class="tsec-detail">One of a small number of AU Government-authorised IDmatch (DVS) providers; designed for AUSTRAC AML/CTF Act obligations.</p>
+      </div>
+      <div class="tsec-card" style="--tc:var(--sky)">
+        <div class="tsec-top"><span class="tsec-name">BSP &amp; AMLC alignment</span><span class="tsec-pill is-aligned">Aligned</span></div>
+        <p class="tsec-detail">Meets BSP Circulars 950, 1122 and 1170; AFASA-ready ahead of the June 2026 deadline.</p>
+      </div>
+      <div class="tsec-card" style="--tc:var(--sky)">
+        <div class="tsec-top"><span class="tsec-name">OJK &amp; BI alignment</span><span class="tsec-pill is-aligned">Aligned</span></div>
+        <p class="tsec-detail">Satisfies POJK 12/POJK.01/2017 eKYC requirements; Dukcapil integration aligned with Indonesia’s Data Protection Law.</p>
+      </div>
+      <div class="tsec-card" style="--tc:var(--sky)">
+        <div class="tsec-top"><span class="tsec-name">BNM alignment</span><span class="tsec-pill is-aligned">Aligned</span></div>
+        <p class="tsec-detail">Built to Bank Negara Malaysia’s e-KYC Policy Document (April 2024 revision); false acceptance rate held below 5%.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRUST ══════════════════════════════════════════════════ -->
+<!-- <section class="trust" id="trust">
+  <div class="container">
+    <span class="section-label">Trust &amp; security</span>
+    <h2 class="section-title">Compliance and security you can point to</h2>
+    <p class="section-sub">Regulated buyers need more than a logo. IDmeta publishes its certifications, regulatory alignments, and security commitments on a dedicated Trust Centre.</p>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <span class="trust-icon">🔒</span>
+        <div class="trust-title">ISO/IEC 27001</div>
+        <div class="trust-desc">Information security management certified. Annual surveillance audits. Data handled securely at rest and in transit.</div>
+        <span class="trust-badge tb-live">Live</span>
+      </div>
+      <div class="trust-card">
+        <span class="trust-icon">👁️</span>
+        <div class="trust-title">iBeta PAD Level 2</div>
+        <div class="trust-desc">ISO/IEC 30107-3 Presentation Attack Detection certification. Zero-percent spoof success across 300 attacks.</div>
+        <span class="trust-badge tb-progress">In progress</span>
+      </div>
+      <div class="trust-card">
+        <span class="trust-icon">🇦🇺</span>
+        <div class="trust-title">AUSTRAC Aligned</div>
+        <div class="trust-desc">One of only 12 authorised AU Government IDmatch (DVS) providers. Designed for AUSTRAC AML/CTF Act obligations.</div>
+        <span class="trust-badge tb-aligned">Aligned</span>
+      </div>
+      <div class="trust-card">
+        <span class="trust-icon">🇵🇭</span>
+        <div class="trust-title">BSP &amp; AMLC Aligned</div>
+        <div class="trust-desc">Meets BSP Circulars 950, 1122 &amp; 1170. AFASA-ready by June 2026. AMLC-compliant AML/CFT controls.</div>
+        <span class="trust-badge tb-aligned">Aligned</span>
+      </div>
+      <div class="trust-card">
+        <span class="trust-icon">🇮🇩</span>
+        <div class="trust-title">OJK &amp; BI Aligned</div>
+        <div class="trust-desc">POJK 12/POJK.01/2017 eKYC requirements satisfied. Direct Dukcapil integration with Data Protection Law compliance.</div>
+        <span class="trust-badge tb-aligned">Aligned</span>
+      </div>
+      <div class="trust-card">
+        <span class="trust-icon">🇲🇾</span>
+        <div class="trust-title">BNM Aligned</div>
+        <div class="trust-desc">Designed to meet Bank Negara Malaysia’s e-KYC Policy Document (April 2024 revision). FAR maintained below 5%.</div>
+        <span class="trust-badge tb-aligned">Aligned</span>
+      </div>
+    </div>
+    <div style="margin-top:32px;text-align:center">
+      <button class="btn-primary-lg" style="background:var(--midnight);color:#fff;border:1.5px solid rgba(0,178,250,.3)">View Trust Centre →</button>
+    </div>
+  </div>
+</section> -->
+
+<!-- ══ DEVELOPER ══════════════════════════════════════════════ -->
+<!-- <section class="dev" id="developers">
+  <div class="container">
+    <div class="dev-grid">
+      <div class="code-stage">
+        <div class="code-window">
+          <div class="code-bar">
+            <span class="dot d-red"></span><span class="dot d-yellow"></span><span class="dot d-green"></span>
+            <span class="code-lang">JavaScript · IDmeta API</span>
+          </div>
+          <div class="code-body"><span class="cl"><span class="c-comment">// Verify an identity in 3 lines</span></span><span class="cl"><span class="c-blue">const</span> <span class="c-orange">idmeta</span> = <span class="c-blue">require</span>(<span class="c-string">'@idmeta/idmeta-sdk'</span>);</span><span class="cl"> </span><span class="cl"><span class="c-blue">const</span> <span class="c-orange">result</span> = <span class="c-blue">await</span> idmeta.<span class="c-green">verify</span>({</span><span class="cl">  <span class="c-orange">market</span>: <span class="c-string">'PH'</span>,</span><span class="cl">  <span class="c-orange">checks</span>: [<span class="c-string">'document'</span>, <span class="c-string">'biometric'</span>, <span class="c-string">'philsys'</span>, <span class="c-string">'aml'</span>],</span><span class="cl">  <span class="c-orange">session_id</span>: <span class="c-string">'usr_abc123'</span></span><span class="cl">});</span><span class="cl"> </span><span class="cl"><span class="c-comment">// result.status → "verified" | "flagged" | "failed"</span></span><span class="cl"><span class="c-comment">// result.checks.philsys.match → true</span></span><span class="cl"><span class="c-comment">// result.risk_score → 0.03</span></span><span class="cl"> </span><span class="cl">console.<span class="c-green">log</span>(<span class="c-orange">result</span>.<span class="c-orange">status</span>); <span class="c-comment">// "verified"</span></span></div>
+        </div>
+        <div class="code-chip"><span class="chip-dot"></span>verified<span class="chip-meta">4.2s avg · sandbox</span></div>
+      </div>
+      <div class="dev-text">
+        <span class="section-label" style="color:var(--sky)">Developers</span>
+        <h2 class="platform-title">Integrate in under an hour</h2>
+        <p class="platform-sub">IDmeta is designed for developer speed. Full REST API, native SDKs for every major mobile and web framework, a sandbox environment, and comprehensive docs — all in one place.</p>
+        <div class="integration-options">
+          <div class="int-option" style="--int-accent:var(--sky)">
+            <div class="int-icon" style="background:rgba(0,178,250,.13);color:var(--sky)">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+            </div>
+            <div>
+              <div class="int-name">REST API</div>
+              <div class="int-desc">Full control. Integrate directly into any stack. JSON + webhooks.</div>
+            </div>
+            <svg class="int-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+          <div class="int-option" style="--int-accent:#8C96FF">
+            <div class="int-icon" style="background:rgba(60,72,207,.18);color:#9BA8FF">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+            <div>
+              <div class="int-name">SDK — iOS, Android, Web, React Native, Flutter</div>
+              <div class="int-desc">Pre-built verification UI. Faster time-to-market. Customisable.</div>
+            </div>
+            <svg class="int-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+          <div class="int-option" style="--int-accent:var(--mint)">
+            <div class="int-icon" style="background:rgba(0,212,170,.13);color:var(--mint)">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </div>
+            <div>
+              <div class="int-name">Direct Link — no code</div>
+              <div class="int-desc">Deploy via SMS or email. No developer needed. Live in minutes.</div>
+            </div>
+            <svg class="int-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+        </div>
+        <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn-primary-lg">View documentation →</button>
+          <button class="btn-outline-lg">Get sandbox access</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- ══ CTA BANNER ════════════════════════════════════════════ -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-inner">
+      <img src="brand_assets/horizontal-logo.png" alt="IDmeta" style="height:32px;margin:0 auto 24px">
+      <h2>Establish trust from the first click.</h2>
+      <p>Book a 20-minute IDmeta demo. We'll walk you through the exact workflow for your market, your industry, and your compliance requirements.</p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="btn-primary-lg">Book a demo →</a>
+        <button class="btn-outline-lg">Talk to sales</button>
+      </div>
+      <p style="margin-top:20px;font-size:13px;color:rgba(255,255,255,.3)">AU · SG · MY · PH · ID &nbsp;|&nbsp; verify@idmetagroup.com &nbsp;|&nbsp; www.idmetagroup.com</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="brand_assets/horizontal-logo.png" alt="IDmeta">
+        </div>
+        <p class="footer-tagline">IDmeta is APAC’s end-to-end identity trust and compliance platform: eKYC, KYB, AML screening, and transaction monitoring, unified in one dashboard and one API. We verify customers at the government source, with direct accredited access to national identity data source across Australia, the Philippines, Indonesia and Malaysia backed by AI-driven biometrics and deepfake detection. Fully customizable Trustflows let you create the exact verification journey your business and regulator require, deployed in days via API, SDK, or no-code Direct Link. Onboard genuine customers in seconds, block fraud before it costs you, and stay audit-ready automatically.</p>
+        <div class="footer-social">
+          <a class="social-btn" href="https://www.linkedin.com/company/idmeta-group" target="_blank" rel="noopener noreferrer">in</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="https://www.linkedin.com/company/idmeta-group" target="_blank" rel="noopener noreferrer">About IDmeta</a>
+        <a href="#industries">Customers</a>
+        <a href="#">Developer Docs</a>
+        <a href="#">Blog &amp; Resources</a>
+        <a href="https://www.linkedin.com/company/idmeta-group" target="_blank" rel="noopener noreferrer">Careers</a>
+        <a href="kyt.html">Transaction Monitoring (KYT)</a>
+        <a href="partners-delphix.html">Delphix Test Data</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 IDmeta Group Pty Ltd. All rights reserved. Melbourne, Australia · Singapore · Kuala Lumpur · Manila · Jakarta</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Settings</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

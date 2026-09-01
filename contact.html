@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact IDmeta — Talk to our APAC identity team</title>
+<meta name="description" content="Contact IDmeta. Offices across Malaysia, the Philippines, Australia, Indonesia and Singapore. Tell us what you need and our team will be in touch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Work+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ── Contact page (scoped) ─────────────────────────────────── */
+.contact-hero{background:linear-gradient(135deg,var(--midnight) 0%,var(--violet) 100%);padding:72px 0 64px;position:relative;overflow:hidden}
+.contact-hero::after{content:'';position:absolute;top:-160px;right:-120px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--sky) 22%,transparent),transparent 68%);pointer-events:none}
+.contact-hero .section-label{color:var(--sky)}
+.contact-hero h1{font-size:46px;font-weight:700;color:#fff;line-height:1.1;letter-spacing:-.03em;max-width:720px;margin-bottom:16px}
+.contact-hero p{font-size:18px;line-height:1.65;color:rgba(255,255,255,.72);max-width:600px}
+
+.contact-body{padding:72px 0 40px;background:var(--white)}
+.contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start}
+
+/* form */
+.form-card{background:var(--white);border:1px solid var(--slate);border-radius:20px;padding:34px 36px;box-shadow:0 30px 60px -46px rgba(0,0,56,.4)}
+.form-card h2{font-size:24px;font-weight:700;color:var(--midnight);letter-spacing:-.02em;margin-bottom:6px}
+.form-card .form-intro{font-size:14.5px;color:var(--midgray);line-height:1.6;margin-bottom:26px}
+.field{margin-bottom:18px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field label{display:block;font-family:'Sora',sans-serif;font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--midnight);margin-bottom:7px}
+.field label .req{color:var(--sky)}
+.field input,.field select,.field textarea{width:100%;font-family:'Work Sans',sans-serif;font-size:14.5px;color:var(--darktext);background:var(--off);border:1px solid var(--slate);border-radius:10px;padding:12px 14px;transition:border-color .2s,box-shadow .2s,background-color .2s;outline:none}
+.field textarea{resize:vertical;min-height:118px;line-height:1.6}
+.field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'><path d='M1 1.5L6 6.5L11 1.5' stroke='%236B7280' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/></svg>");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;cursor:pointer}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--sky);background:var(--white);box-shadow:0 0 0 3px color-mix(in srgb,var(--sky) 18%,transparent)}
+.field input::placeholder,.field textarea::placeholder{color:#9aa2b1}
+.field select:invalid{color:#9aa2b1}
+.form-submit{margin-top:6px}
+.form-submit .btn-primary-lg{width:100%;justify-content:center;cursor:pointer}
+.form-submit .btn-primary-lg:hover{background:color-mix(in srgb,var(--sky) 88%,#fff)}
+.form-note{font-size:12px;color:var(--midgray);text-align:center;margin-top:14px;line-height:1.5}
+
+/* success state */
+.form-success{display:none;flex-direction:column;align-items:center;text-align:center;padding:26px 10px}
+.form-success.show{display:flex;animation:cFade .5s cubic-bezier(.2,.7,.3,1) both}
+@keyframes cFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.form-success .tick{width:60px;height:60px;border-radius:50%;background:color-mix(in srgb,var(--mint) 16%,transparent);border:1.5px solid color-mix(in srgb,var(--mint) 45%,transparent);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.form-success .tick svg{width:28px;height:28px;stroke:#00845f}
+.form-success h2{font-size:23px;color:var(--midnight);margin-bottom:10px}
+.form-success p{font-size:15px;color:var(--midgray);line-height:1.65;max-width:360px}
+
+/* offices */
+.offices-aside .aside-lead{margin-bottom:26px}
+.offices-aside .section-label{color:var(--sky)}
+.offices-aside h2{font-size:24px;font-weight:700;color:var(--midnight);letter-spacing:-.02em;margin-bottom:10px}
+.offices-aside .aside-lead p{font-size:14.5px;color:var(--midgray);line-height:1.65}
+.gen-contact{display:flex;flex-wrap:wrap;gap:10px 22px;margin:16px 0 4px}
+.gen-contact a{font-family:'Sora',sans-serif;font-size:13.5px;font-weight:600;color:var(--violet);display:inline-flex;align-items:center;gap:8px;transition:color .2s}
+.gen-contact a:hover{color:var(--sky)}
+.gen-contact svg{width:15px;height:15px;stroke:currentColor;fill:none}
+.office-list{display:flex;flex-direction:column;gap:14px}
+.office{position:relative;border:1px solid var(--slate);border-radius:16px;padding:20px 22px 20px 24px;background:var(--white);transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s}
+.office::before{content:'';position:absolute;left:0;top:20px;bottom:20px;width:3px;border-radius:0 3px 3px 0;background:var(--sky)}
+.office:hover{transform:translateY(-3px);box-shadow:0 20px 44px -30px rgba(0,0,56,.4)}
+.office-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:9px}
+.office-name{font-family:'Sora',sans-serif;font-size:15px;font-weight:700;color:var(--midnight);letter-spacing:-.01em}
+.office-tag{flex-shrink:0;font-family:'Sora',sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0072ad;background:color-mix(in srgb,var(--sky) 12%,#fff);border:1px solid color-mix(in srgb,var(--sky) 30%,transparent);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.office-addr{font-size:13.5px;color:var(--midgray);line-height:1.6}
+
+@media(max-width:900px){
+  .contact-grid{grid-template-columns:1fr;gap:40px}
+  .contact-hero h1{font-size:36px}
+  .form-card{padding:28px 22px}
+}
+@media(max-width:520px){
+  .field-row{grid-template-columns:1fr}
+  .contact-hero h1{font-size:30px}
+}
+</style>
+</head>
+<body data-page="contact">
+
+<!-- ══ NAV ══════════════════════════════════════════════════ -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="brand_assets/horizontal-logo.png" alt="IDmeta"></a>
+      <div class="nav-links">
+        <a href="index.html#platform">Platform</a>
+        <a href="index.html#products">Products</a>
+        <a href="kyt.html">KYT</a>
+        <a href="index.html#apac">APAC Coverage</a>
+        <a href="partners-delphix.html">Partners</a>
+        <a href="https://docs.idmetagroup.com" target="_blank" rel="noopener noreferrer">Developers</a>
+        <a href="contact.html" class="active">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="btn-ghost">Log in</button>
+        <a href="contact.html" class="btn-primary">Book a demo</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HEADER BAND ═══════════════════════════════════════════ -->
+<section class="contact-hero">
+  <div class="container">
+    <span class="section-label">Contact</span>
+    <h1>Let’s establish trust — together.</h1>
+    <p>Tell us about your market, your industry and your compliance requirements. Our team will walk you through the exact verification workflow for your business — usually within one business day.</p>
+  </div>
+</section>
+
+<!-- ══ BODY: FORM + OFFICES ══════════════════════════════════ -->
+<section class="contact-body">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Form -->
+      <div class="form-card" id="form-card">
+        <form id="contact-form" novalidate>
+          <h2>Send us a message</h2>
+          <p class="form-intro">Fields marked <span style="color:var(--sky)">*</span> are required.</p>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Full name <span class="req">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Jane Santos" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="company">Company name <span class="req">*</span></label>
+              <input type="text" id="company" name="company" placeholder="Acme Financial" required autocomplete="organization">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="+60 12 345 6789" autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us a little about what you're looking to verify…"></textarea>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn-primary-lg">Send message <span>→</span></button>
+          </div>
+          <p class="form-note">By submitting, you agree to be contacted by IDmeta about your enquiry.</p>
+        </form>
+
+        <div class="form-success" id="form-success" role="status" aria-live="polite">
+          <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span>
+          <h2>Thank you — message received.</h2>
+          <p>We’ve got your enquiry and a member of the IDmeta team will be in touch, usually within one business day.</p>
+        </div>
+      </div>
+
+      <!-- Offices -->
+      <aside class="offices-aside">
+        <div class="aside-lead">
+          <span class="section-label">Our offices</span>
+          <h2>Find us across APAC</h2>
+          <p>Five entities, one platform. Reach the team directly, or drop by one of our regional offices.</p>
+          <div class="gen-contact">
+            <a href="mailto:verify@idmetagroup.com"><svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5L12 13l8.5-6.5"/></svg>verify@idmetagroup.com</a>
+            <a href="https://www.idmetagroup.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>idmetagroup.com</a>
+          </div>
+        </div>
+
+        <div class="office-list">
+          <div class="office">
+            <div class="office-top"><span class="office-name">IDMETA SDN BHD</span><span class="office-tag">Malaysia</span></div>
+            <p class="office-addr">Mercu 2 WeWork, No. 3, Jalan Bangsar, KL Eco City, 59200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur, Malaysia</p>
+          </div>
+          <div class="office">
+            <div class="office-top"><span class="office-name">IDMETA INC</span><span class="office-tag">Philippines</span></div>
+            <p class="office-addr">UB111, Paseo De Roxas Bldg, Legaspi Street, Legaspi Village, San Lorenzo, City of Makati, Fourth District, NCR 1223</p>
+          </div>
+          <div class="office">
+            <div class="office-top"><span class="office-name">IDMETA PTY LTD</span><span class="office-tag">Australia</span></div>
+            <p class="office-addr">Central House, Ground Floor, 101 Moray St, South Melbourne VIC 3205, Australia</p>
+          </div>
+          <div class="office">
+            <div class="office-top"><span class="office-name">PT Meta Peta Indonesia</span><span class="office-tag">Indonesia</span></div>
+            <p class="office-addr">WeWork 30-128 Noble House, 30th Floor, Jl. Dr. Ide Anak Agung Gde Agung Kav E.4 No. 2, Kuningan, Jakarta Selatan, DKI Jakarta 12950, Indonesia</p>
+          </div>
+          <div class="office">
+            <div class="office-top"><span class="office-name">IDMETA PTE LTD</span><span class="office-tag">Singapore</span></div>
+            <p class="office-addr">81 Ubi Avenue 4, #09-18 UB.One, Singapore 408830</p>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="brand_assets/horizontal-logo.png" alt="IDmeta">
+        </div>
+        <p class="footer-tagline">IDmeta is APAC’s end-to-end identity trust and compliance platform: eKYC, KYB, AML screening, and transaction monitoring, unified in one dashboard and one API. We verify customers at the government source — with direct accredited access to national identity data sources across Australia, the Philippines, Indonesia and Malaysia — backed by AI-driven biometrics and deepfake detection.</p>
+        <div class="footer-social">
+          <div class="social-btn">in</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <a href="index.html#platform">IDmeta Overview</a>
+        <a href="index.html#products">Document Verification</a>
+        <a href="index.html#products">Biometrics</a>
+        <a href="index.html#products">Govt Database</a>
+        <a href="index.html#products">AML Screening</a>
+        <a href="index.html#products">KYB</a>
+        <a href="kyt.html">Transaction Monitoring (KYT)</a>
+      </div>
+      <div class="footer-col">
+        <h4>APAC Markets</h4>
+        <a href="index.html#apac">Philippines</a>
+        <a href="index.html#apac">Indonesia</a>
+        <a href="index.html#apac">Australia</a>
+        <a href="index.html#apac">Malaysia</a>
+        <a href="index.html#apac">Singapore</a>
+      </div>
+      <div class="footer-col">
+        <h4>Industries</h4>
+        <a href="index.html#industries">Lending</a>
+        <a href="index.html#industries">Fintech &amp; Digital Banking</a>
+        <a href="index.html#industries">iGaming</a>
+        <a href="index.html#industries">Insurance</a>
+        <a href="index.html#industries">Remittance</a>
+        <a href="index.html#industries">Rural Banking</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="index.html">About IDmeta</a>
+        <a href="index.html#customers">Customers</a>
+        <a href="index.html#trust">Trust Centre</a>
+        <a href="#">Developer Docs</a>
+        <a href="#">Blog &amp; Resources</a>
+        <a href="#">Careers</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 IDmeta Group Pty Ltd. All rights reserved. Melbourne, Australia · Singapore · Kuala Lumpur · Manila · Jakarta</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="index.html#trust">Trust Centre</a>
+        <a href="#">Cookie Settings</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const form = document.getElementById('contact-form');
+  const success = document.getElementById('form-success');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    // native validation for required fields
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    form.style.display = 'none';
+    success.classList.add('show');
+    success.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+})();
+</script>
+</body>
+</html>
