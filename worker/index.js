@@ -7,9 +7,32 @@ function escapeHtml(str) {
   ));
 }
 
+async function verifyTurnstile(token, ip, secret) {
+  const form = new FormData();
+  form.append('secret', secret);
+  form.append('response', token);
+  if (ip) form.append('remoteip', ip);
+
+  const resp = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+    method: 'POST',
+    body: form,
+  });
+  if (!resp.ok) return false;
+
+  const data = await resp.json().catch(() => null);
+  if (!data || !data.success) {
+    console.error('Turnstile verification failed', data && data['error-codes']);
+    return false;
+  }
+  return true;
+}
+
 async function handleContact(request, env) {
   if (!env.RESEND_API_KEY) {
     return Response.json({ error: 'Email is not configured.' }, { status: 500 });
+  }
+  if (!env.TURNSTILE_SECRET_KEY) {
+    return Response.json({ error: 'Verification is not configured.' }, { status: 500 });
   }
 
   let body;
@@ -17,6 +40,20 @@ async function handleContact(request, env) {
     body = await request.json();
   } catch {
     return Response.json({ error: 'Invalid request body.' }, { status: 400 });
+  }
+
+  const turnstileToken = (body.turnstileToken || body['cf-turnstile-response'] || '').trim();
+  if (!turnstileToken) {
+    return Response.json({ error: 'Please complete the verification challenge.' }, { status: 400 });
+  }
+
+  const passed = await verifyTurnstile(
+    turnstileToken,
+    request.headers.get('CF-Connecting-IP'),
+    env.TURNSTILE_SECRET_KEY,
+  );
+  if (!passed) {
+    return Response.json({ error: 'Verification failed. Please try again.' }, { status: 403 });
   }
 
   const name = (body.name || '').trim();

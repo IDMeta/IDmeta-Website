@@ -100,12 +100,12 @@ nav{position:sticky;top:0;z-index:999;background:linear-gradient(90deg,var(--mid
 /* phone */
 .hv-phone{position:relative;width:176px;height:336px;background:#0b1026;border:1.5px solid rgba(255,255,255,.2);border-radius:22px;padding:7px;box-shadow:0 18px 40px -18px rgba(0,0,20,.8),0 0 0 1px rgba(0,178,250,.08)}
 .hv-screenport{position:relative;width:100%;height:100%;border-radius:15px;overflow:hidden;background:#f4f6fb}
-.hv-screen{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;padding:14px 11px 11px;background:#f4f6fb;transform:translateX(105%);transition:transform .5s cubic-bezier(.3,.9,.3,1)}
+.hv-screen{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;padding:14px 11px 11px;transform:translateX(105%);transition:transform .5s cubic-bezier(.3,.9,.3,1)}
 .hv-screen.active{transform:none}
 .hv-screen.prev{transform:translateX(-105%)}
-.hv-mark{position:relative;width:18px;height:18px;margin-bottom:8px;flex-shrink:0}
-.hv-mark::before{content:'';position:absolute;left:0;top:2px;width:12px;height:14px;border:3.5px solid var(--sky);border-radius:4px;border-right-color:transparent}
-.hv-mark::after{content:'';position:absolute;right:0;bottom:2px;width:12px;height:14px;border:3.5px solid var(--sky);border-radius:4px;border-left-color:transparent}
+/* real IDmeta brandmark; the glyph fills ~39% of its 1000x1000 viewBox,
+   so it is scaled up to read at the same 18px as the mark it replaced */
+.hv-mark{position:relative;width:18px;height:18px;margin-bottom:8px;flex-shrink:0;background:url("brand_assets/IDmeta - Brandmark.svg") no-repeat center/255%}
 .hvs-title{font-family:'Sora',sans-serif;font-size:10.5px;font-weight:700;color:var(--darktext);text-align:center;line-height:1.35}
 .hvs-sub{font-size:8.5px;color:#7a86a0;text-align:center;margin-top:2px}
 .hvs-card{width:100%;background:#fff;border:1px solid #e3e9f4;border-radius:8px;padding:8px 9px;margin-top:8px}
@@ -500,7 +500,7 @@ nav{position:sticky;top:0;z-index:999;background:linear-gradient(90deg,var(--mid
 .case-id{display:flex;flex-direction:column;gap:3px;min-width:0}
 .case-sector{font-family:'Sora',sans-serif;font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--midnight);margin:0}
 .case-market{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--midgray)}
-.case-hero{margin-top:22px;padding:17px 19px 16px;background:var(--midnight);border:1px solid var(--midnight);border-radius:13px}
+.case-hero{margin-top:22px;padding:17px 19px 16px;background:linear-gradient(135deg,var(--midnight) 0%,var(--violet) 100%);border:1px solid var(--midnight);border-radius:13px}
 .case-hero .val{display:block;font-family:'Sora',sans-serif;font-size:34px;font-weight:700;line-height:1;letter-spacing:-.025em;color:#fff}
 .case-hero .lbl{display:block;margin-top:8px;font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.55);min-height:38px;text-wrap:pretty}
 .case-narr{font-size:14.5px;color:var(--darktext);line-height:1.7;margin:18px 0 0;flex:1}

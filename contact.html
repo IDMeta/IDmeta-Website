@@ -13,6 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Work+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script src="scripts.js" defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <style>
 /* ── Contact page (scoped) ─────────────────────────────────── */
 .contact-hero{background:linear-gradient(135deg,var(--midnight) 0%,var(--violet) 100%);padding:72px 0 64px;position:relative;overflow:hidden}
@@ -38,6 +39,10 @@
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--sky);background:var(--white);box-shadow:0 0 0 3px color-mix(in srgb,var(--sky) 18%,transparent)}
 .field input::placeholder,.field textarea::placeholder{color:#9aa2b1}
 .field select:invalid{color:#9aa2b1}
+.turnstile-field{margin-bottom:18px}
+.turnstile-field .cf-turnstile{min-height:65px}
+.form-error{display:none;font-family:'Work Sans',sans-serif;font-size:13px;color:#a3271c;background:color-mix(in srgb,#c0392b 6%,#fff);border:1px solid color-mix(in srgb,#c0392b 24%,transparent);border-radius:10px;padding:11px 13px;margin-bottom:16px;line-height:1.55}
+.form-error.show{display:block;animation:cFade .3s cubic-bezier(.2,.7,.3,1) both}
 .form-submit{margin-top:6px}
 .form-submit .btn-primary-lg{width:100%;justify-content:center;cursor:pointer}
 .form-submit .btn-primary-lg:hover{background:color-mix(in srgb,var(--sky) 88%,#fff)}
@@ -132,6 +137,22 @@
             <textarea id="message" name="message" placeholder="Tell us a little about what you're looking to verify…"></textarea>
           </div>
 
+          <div class="field turnstile-field">
+            <!-- Turnstile SITE key — public by design, safe in client HTML.
+                 The paired SECRET key must never appear here; it lives in the worker
+                 as TURNSTILE_SECRET_KEY (set via `wrangler secret put`). -->
+            <div class="cf-turnstile"
+                 id="turnstile-widget"
+                 data-sitekey="0x4AAAAAAEjx7mBixuTyw-JX"
+                 data-theme="light"
+                 data-size="flexible"
+                 data-callback="onTurnstileSuccess"
+                 data-expired-callback="onTurnstileExpired"
+                 data-error-callback="onTurnstileError"></div>
+          </div>
+
+          <p class="form-error" id="form-error" role="alert"></p>
+
           <div class="form-submit">
             <button type="submit" class="btn-primary-lg">Send message <span>→</span></button>
           </div>
@@ -195,13 +216,41 @@
   if(!form) return;
   const submitBtn = form.querySelector('.btn-primary-lg');
   const submitLabel = submitBtn.innerHTML;
+  const errBox = document.getElementById('form-error');
+  const WIDGET = '#turnstile-widget';
+
+  function showError(msg){ errBox.textContent = msg; errBox.classList.add('show'); }
+  function clearError(){ errBox.textContent = ''; errBox.classList.remove('show'); }
+
+  // Turnstile widget callbacks (referenced by data-* attributes on the widget)
+  window.onTurnstileSuccess = clearError;
+  window.onTurnstileExpired = function(){ showError('Verification expired — please tick the box again.'); };
+  window.onTurnstileError   = function(){ showError('The verification widget could not load. Please refresh the page and try again.'); };
+
+  function resetWidget(){
+    if(window.turnstile && typeof turnstile.reset === 'function'){
+      try { turnstile.reset(WIDGET); } catch(e){}
+    }
+  }
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
+    clearError();
     // native validation for required fields
     if(!form.checkValidity()){ form.reportValidity(); return; }
 
+    // Turnstile must be solved before we let the message through
+    let token = '';
+    if(window.turnstile && typeof turnstile.getResponse === 'function'){
+      try { token = turnstile.getResponse(WIDGET) || ''; } catch(e){ token = ''; }
+    }
+    if(!token){
+      showError('Please complete the “I’m not a robot” verification before sending.');
+      return;
+    }
+
     const payload = Object.fromEntries(new FormData(form).entries());
+    payload.turnstileToken = token;
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
 
@@ -211,18 +260,23 @@
       body: JSON.stringify(payload)
     })
     .then(function(res){
-      if(!res.ok) throw new Error('Request failed');
-      return res.json();
+      return res.json().catch(function(){ return {}; }).then(function(data){
+        if(!res.ok) throw new Error((data && data.error) || 'Request failed');
+        return data;
+      });
     })
     .then(function(){
       form.style.display = 'none';
       success.classList.add('show');
       success.scrollIntoView({behavior:'smooth', block:'center'});
     })
-    .catch(function(){
+    .catch(function(err){
       submitBtn.disabled = false;
       submitBtn.innerHTML = submitLabel;
-      alert('Something went wrong sending your message. Please email us directly at verify@idmetagroup.com.');
+      // tokens are single-use — get a fresh one before the next attempt
+      resetWidget();
+      showError((err && err.message ? err.message + ' ' : 'Something went wrong sending your message. ') +
+                'You can also email us directly at verify@idmetagroup.com.');
     });
   });
 })();

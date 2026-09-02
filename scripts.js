@@ -12,7 +12,7 @@
       <div class="nav-inner">
         <a href="${home}" class="nav-logo"><img src="brand_assets/IDmeta - Primary Logo Reverse.svg" alt="IDmeta"></a>
         <div class="nav-links">
-          <a href="${platform}"${isHome ? ' class="active"' : ''}>Platform</a>
+          <a href="${home}"${isHome ? ' class="active"' : ''}>Home</a>
           <a href="${platform}">Products</a>
           <a href="https://docs.idmetagroup.com" target="_blank" rel="noopener noreferrer">Developers</a>
           <a href="contact.html"${page === 'contact' ? ' class="active"' : ''}>Contact</a>
@@ -89,7 +89,7 @@
             </div>
             <div class="footer-subcol">
               <h5>Onboarding</h5>
-              <a href="https://docs.idmetagroup.com/products/customize/custom-form" target="_blank" rel="noopener noreferrer">Custom Forms</a>
+              <a href="https://docs.idmetagroup.com/resources/custom-forms/advance-custom-forms" target="_blank" rel="noopener noreferrer">Custom Forms</a>
               <span class="footer-disabled">e-Signature</span>
             </div>
           </div>
@@ -205,8 +205,9 @@ const markets = {
     [4400, ()=>go(2)],
     [4650, ()=>{ rows[0].classList.add('live'); stat(0).textContent='verifying & extracting…'; fields.forEach((f,k)=>ivs.push(setTimeout(()=>type(f,f.dataset.v),k*430))); }],
     [5000, ()=>oval.classList.add('draw')],
+    [5900, ()=>{ hint.textContent='Capturing Selfie…'; }],
     [6400, ()=>{ stat(0).textContent='✓ 14 fields'; stat(0).classList.add('ok'); }],
-    [7000, ()=>{ hint.textContent='Liveness confirmed ✓'; hint.classList.add('ok'); }],
+    [7000, ()=>{ hint.textContent='Liveness Complete ✓'; hint.classList.add('ok'); }],
     [7500, ()=>fly(1)],
     [7950, ()=>{ rows[1].classList.add('live'); stat(1).textContent='matching…'; }],
     [8500, ()=>go(3)],

@@ -1,0 +1,21 @@
+# Files in the project root that are not part of the published site.
+# Wrangler serves assets from "." (see wrangler.jsonc), so without this
+# everything here — node_modules, internal screenshots, tooling — ships publicly.
+node_modules
+temporary screenshots
+.git
+.github
+.wrangler
+.claude
+.DS_Store
+*.md
+
+# worker source is executed, not served
+worker
+
+# local tooling
+serve.mjs
+screenshot.mjs
+package.json
+package-lock.json
+wrangler.jsonc
