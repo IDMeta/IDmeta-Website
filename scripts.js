@@ -190,7 +190,7 @@ const markets = {
     cards.forEach(c=>c.classList.add('show'));
     rows.forEach(r=>r.classList.add('live'));
     fields.forEach(f=>f.textContent=f.dataset.v);
-    ['✓ 14 fields','✓ 99.2% match','✓ MATCH — PCN confirmed','✓ CLEAR'].forEach((t,k)=>{ stat(k).textContent=t; stat(k).classList.add('ok'); });
+    ['✓ 14 fields','✓ 99.2% match','✓ ID VERIFIED','✓ CLEAR'].forEach((t,k)=>{ stat(k).textContent=t; stat(k).classList.add('ok'); });
     decision.classList.add('on');
     return;
   }
@@ -213,8 +213,8 @@ const markets = {
     [8500, ()=>go(3)],
     [9000, ()=>{ stat(1).textContent='✓ 99.2% match'; stat(1).classList.add('ok'); }],
     [9300, ()=>phone.classList.add('dimmed')],
-    [9500, ()=>{ rows[2].classList.add('live'); stat(2).textContent='querying PhilSys…'; }],
-    [11000, ()=>{ stat(2).textContent='✓ MATCH — PCN confirmed'; stat(2).classList.add('ok'); }],
+    [9500, ()=>{ rows[2].classList.add('live'); stat(2).textContent='querying GOV DATA'; }],
+    [11000, ()=>{ stat(2).textContent='✓ ID VERIFIED'; stat(2).classList.add('ok'); }],
     [11400, ()=>{ rows[3].classList.add('live'); stat(3).textContent='screening 45,000+ lists…'; }],
     [13100, ()=>{ stat(3).textContent='✓ CLEAR'; stat(3).classList.add('ok'); }],
     [13600, ()=>decision.classList.add('on')],
