@@ -35,12 +35,12 @@
 .field label .req{color:var(--sky)}
 .field input,.field select,.field textarea{width:100%;font-family:'Work Sans',sans-serif;font-size:14.5px;color:var(--darktext);background:var(--off);border:1px solid var(--slate);border-radius:10px;padding:12px 14px;transition:border-color .2s,box-shadow .2s,background-color .2s;outline:none}
 .field textarea{resize:vertical;min-height:118px;line-height:1.6}
+.turnstile-field{margin-bottom:18px}
+.turnstile-field .cf-turnstile{min-height:65px}
 .field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'><path d='M1 1.5L6 6.5L11 1.5' stroke='%236B7280' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/></svg>");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;cursor:pointer}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--sky);background:var(--white);box-shadow:0 0 0 3px color-mix(in srgb,var(--sky) 18%,transparent)}
 .field input::placeholder,.field textarea::placeholder{color:#9aa2b1}
 .field select:invalid{color:#9aa2b1}
-.turnstile-field{margin-bottom:18px}
-.turnstile-field .cf-turnstile{min-height:65px}
 .form-error{display:none;font-family:'Work Sans',sans-serif;font-size:13px;color:#a3271c;background:color-mix(in srgb,#c0392b 6%,#fff);border:1px solid color-mix(in srgb,#c0392b 24%,transparent);border-radius:10px;padding:11px 13px;margin-bottom:16px;line-height:1.55}
 .form-error.show{display:block;animation:cFade .3s cubic-bezier(.2,.7,.3,1) both}
 .form-submit{margin-top:6px}
@@ -138,9 +138,6 @@
           </div>
 
           <div class="field turnstile-field">
-            <!-- Turnstile SITE key — public by design, safe in client HTML.
-                 The paired SECRET key must never appear here; it lives in the worker
-                 as TURNSTILE_SECRET_KEY (set via `wrangler secret put`). -->
             <div class="cf-turnstile"
                  id="turnstile-widget"
                  data-sitekey="0x4AAAAAAEjx7mBixuTyw-JX"
@@ -222,10 +219,9 @@
   function showError(msg){ errBox.textContent = msg; errBox.classList.add('show'); }
   function clearError(){ errBox.textContent = ''; errBox.classList.remove('show'); }
 
-  // Turnstile widget callbacks (referenced by data-* attributes on the widget)
   window.onTurnstileSuccess = clearError;
   window.onTurnstileExpired = function(){ showError('Verification expired — please tick the box again.'); };
-  window.onTurnstileError   = function(){ showError('The verification widget could not load. Please refresh the page and try again.'); };
+  window.onTurnstileError = function(){ showError('The verification widget could not load. Please refresh the page and try again.'); };
 
   function resetWidget(){
     if(window.turnstile && typeof turnstile.reset === 'function'){
@@ -239,13 +235,12 @@
     // native validation for required fields
     if(!form.checkValidity()){ form.reportValidity(); return; }
 
-    // Turnstile must be solved before we let the message through
     let token = '';
     if(window.turnstile && typeof turnstile.getResponse === 'function'){
-      try { token = turnstile.getResponse(WIDGET) || ''; } catch(e){ token = ''; }
+      try { token = turnstile.getResponse(WIDGET) || ''; } catch(e){}
     }
     if(!token){
-      showError('Please complete the “I’m not a robot” verification before sending.');
+      showError('Please complete the verification before sending.');
       return;
     }
 
@@ -273,7 +268,6 @@
     .catch(function(err){
       submitBtn.disabled = false;
       submitBtn.innerHTML = submitLabel;
-      // tokens are single-use — get a fresh one before the next attempt
       resetWidget();
       showError((err && err.message ? err.message + ' ' : 'Something went wrong sending your message. ') +
                 'You can also email us directly at verify@idmetagroup.com.');

@@ -1,0 +1,17 @@
+[Unit]
+Description=IDmeta Website
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/opt/idmeta-website/current
+EnvironmentFile=/Users/idmeta/Documents/GitHub/Website/.env
+ExecStart=/usr/bin/node serve.mjs
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

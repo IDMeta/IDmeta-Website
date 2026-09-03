@@ -8,6 +8,11 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const dir = join(__dirname, 'temporary screenshots');
 const url = process.argv[2] || 'http://localhost:3000';
 const label = process.argv[3] ? '-' + process.argv[3] : '';
+const width = Number(process.argv[4] || 1440);
+const height = Number(process.argv[5] || 900);
+const fullPage = process.argv[6] === 'full';
+const clickSelector = process.argv[7];
+const settleMs = Number(process.argv[8] || 800);
 
 if (!existsSync(dir)) await mkdir(dir, { recursive: true });
 
@@ -22,8 +27,13 @@ const browser = await puppeteer.launch({
   headless: true,
 });
 const page = await browser.newPage();
-await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 });
+await page.setViewport({ width, height, deviceScaleFactor: 2 });
 await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
-await page.screenshot({ path: file, fullPage: false });
+await new Promise(resolve => setTimeout(resolve, settleMs));
+if (clickSelector) {
+  await page.click(clickSelector);
+  await new Promise(resolve => setTimeout(resolve, 350));
+}
+await page.screenshot({ path: file, fullPage });
 await browser.close();
 console.log(`Saved: ${file}`);
