@@ -2,6 +2,17 @@
 
 This repository is a standalone Node.js website. It serves the static site and the contact endpoint at `POST /api/contact`; it does not use Cloudflare Workers or Wrangler. The contact endpoint sends mail through [Resend](https://resend.com) and verifies Cloudflare Turnstile tokens on the server.
 
+## Deploy on Vercel
+
+The site is ready to deploy from this GitHub repository. Static files are served by Vercel's CDN and `api/contact.mjs` runs the contact endpoint as a Vercel Node.js Function.
+
+1. In Vercel, select **Add New → Project**, import this GitHub repository, and deploy with the default settings. No build command is required.
+2. In **Project → Settings → Environment Variables**, add `RESEND_API_KEY`, `TURNSTILE_SECRET_KEY`, `CONTACT_TO`, and `CONTACT_FROM` for the Production environment. Redeploy after adding or changing a variable.
+3. In **Project → Settings → Domains**, add the apex domain and its `www` hostname. Add the precise DNS records Vercel displays in SiteGround's DNS Zone Editor; preserve existing mail-related MX and TXT records.
+4. Submit a production contact form and confirm delivery. Vercel provisions TLS automatically after its DNS check succeeds.
+
+The function keeps a best-effort in-memory rate limit for warm invocations. For a strict shared rate limit across all Vercel instances, use a durable store such as Vercel KV or Upstash Redis.
+
 This guide deploys the site on an Ubuntu/Debian Huawei Cloud ECS instance behind Nginx, then points a SiteGround-managed domain to the ECS public IP. Substitute the values below before running commands:
 
 | Placeholder | Example |
