@@ -4,7 +4,7 @@ This repository is a standalone Node.js website. It serves the static site and t
 
 ## Deploy on Vercel
 
-The site is ready to deploy from this GitHub repository. Static files are served by Vercel's CDN and `api/contact.mjs` runs the contact endpoint as a Vercel Node.js Function.
+The site is ready to deploy from this GitHub repository. Static files are served by Vercel's CDN and `api/contact.mjs` runs the contact endpoint as a Vercel Edge Function (it uses the Web-standard `Request`/`Response` API, declared via `export const config = { runtime: 'edge' }`).
 
 1. In Vercel, select **Add New → Project**, import this GitHub repository, and deploy with the default settings. No build command is required.
 2. In **Project → Settings → Environment Variables**, add `RESEND_API_KEY`, `TURNSTILE_SECRET_KEY`, `CONTACT_TO`, and `CONTACT_FROM` for the Production environment. Redeploy after adding or changing a variable.

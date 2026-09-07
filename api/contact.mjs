@@ -1,3 +1,5 @@
+export const config = { runtime: 'edge' };
+
 const contactTo = process.env.CONTACT_TO || 'verify@idmetagroup.com';
 const contactFrom = process.env.CONTACT_FROM || 'IDmeta Website <support@idmetagroup.com>';
 const rateLimitWindowMs = 15 * 60 * 1000;
