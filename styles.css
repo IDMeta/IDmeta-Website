@@ -80,7 +80,7 @@ body[data-page="contact"] a.btn-primary{display:inline-flex}
 
 /* HERO */
 .hero{background:linear-gradient(135deg,var(--midnight) 0%,var(--violet) 100%);padding:80px 0 72px;position:relative;overflow:hidden}
-body[data-page="home"] .hero{background:#00004a}
+body[data-page="home"] .hero{background:linear-gradient(135deg,rgba(0,0,74,.88) 0%,rgba(0,0,74,.72) 100%),url('brand_assets/hero-banner.jpeg') center/cover no-repeat}
 body[data-page="home"] .hero::before,
 body[data-page="home"] .hero::after{display:none}
 .hero::after{content:'';position:absolute;top:-120px;right:-80px;width:480px;height:480px;border-radius:50%;background:var(--violet);opacity:.12;pointer-events:none}
