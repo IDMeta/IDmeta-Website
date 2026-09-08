@@ -82,7 +82,7 @@ export default async function handler(request) {
   const message = String(body.message || '').trim();
   const turnstileToken = String(body.turnstileToken || '').trim();
 
-  if (!name || !company || !email) return json({ error: 'Missing required fields.' }, 400);
+  if (!name || !company || !email || !phone) return json({ error: 'Missing required fields.' }, 400);
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return json({ error: 'Invalid email address.' }, 400);
   if (!turnstileToken) return json({ error: 'Please complete the verification challenge.' }, 400);
   if (!await verifyTurnstile(turnstileToken, ip)) return json({ error: 'Verification failed. Please try again.' }, 403);

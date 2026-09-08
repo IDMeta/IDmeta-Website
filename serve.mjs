@@ -76,7 +76,7 @@ async function handleContact(req, res) {
   const phone = String(body.phone || '').trim();
   const message = String(body.message || '').trim();
   const turnstileToken = String(body.turnstileToken || '').trim();
-  if (!name || !company || !email) return respond(res, 400, { error: 'Missing required fields.' });
+  if (!name || !company || !email || !phone) return respond(res, 400, { error: 'Missing required fields.' });
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return respond(res, 400, { error: 'Invalid email address.' });
   if (!turnstileToken) return respond(res, 400, { error: 'Please complete the verification challenge.' });
   if (!await verifyTurnstile(turnstileToken, clientIp(req))) return respond(res, 403, { error: 'Verification failed. Please try again.' });
