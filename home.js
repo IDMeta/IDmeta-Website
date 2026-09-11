@@ -133,7 +133,7 @@
     $('#market-checks').innerHTML = market.checks.map((check) => `<li>${check}</li>`).join('');
     $('#source-nodes').innerHTML = market.sources.map(([name, description]) => `<div><span class="node-dot"></span><strong>${name}</strong><span>${description}</span></div>`).join('');
     const link = $('#market-link');
-    link.href = market.link ? docs + market.link : 'contact.html';
+    link.href = market.link ? docs + market.link : '/contact';
     if (market.link) { link.target = '_blank'; link.rel = 'noopener noreferrer'; }
     else { link.removeAttribute('target'); link.removeAttribute('rel'); }
     link.innerHTML = `${market.link ? 'Explore' : 'Discuss'} ${market.name} coverage <span aria-hidden="true">↗</span>`;

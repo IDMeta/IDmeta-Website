@@ -5,8 +5,8 @@
   if(!nav) return;
   const page = document.body.dataset.page;
   const isHome = page === 'home';
-  const home = isHome ? '#' : 'index.html';
-  const platform = isHome ? '#platform' : 'index.html#platform';
+  const home = isHome ? '#' : '/';
+  const platform = isHome ? '#platform' : '/#platform';
   nav.innerHTML = `
     <div class="container">
       <div class="nav-inner">
@@ -15,18 +15,18 @@
           <a href="${home}"${isHome ? ' class="active"' : ''}>Home</a>
           <a href="${platform}">Products</a>
           <a href="https://docs.idmetagroup.com" target="_blank" rel="noopener noreferrer">Developers</a>
-          <a href="contact.html"${page === 'contact' ? ' class="active"' : ''}>Contact</a>
+          <a href="/contact"${page === 'contact' ? ' class="active"' : ''}>Contact</a>
         </div>
         <div class="nav-actions">
-          <a href="contact.html" class="btn-primary">Book a demo</a>
+          <a href="/contact" class="btn-primary">Book a demo</a>
         </div>
         <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
         <label for="nav-toggle" class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></label>
         <div class="mobile-menu">
-          <a href="index.html">Home</a>
+          <a href="/">Home</a>
           <a href="${platform}">Products</a>
           <a href="https://docs.idmetagroup.com/welcome" target="_blank" rel="noopener noreferrer">Developers</a>
-          <a href="contact.html">Contact Us</a>
+          <a href="/contact">Contact Us</a>
         </div>
       </div>
     </div>`;
@@ -99,7 +99,7 @@
           <h4>About</h4>
           <a href="https://www.linkedin.com/company/idmeta-group" target="_blank" rel="noopener noreferrer">About IDmeta</a>
           <a href="https://www.linkedin.com/company/idmeta-group" target="_blank" rel="noopener noreferrer">Careers</a>
-          <a href="contact.html">Contact</a>
+          <a href="/contact">Contact</a>
         </div>
         <div class="footer-col">
           <h4>Developers</h4>
@@ -112,7 +112,7 @@
       <div class="footer-bottom">
         <p>© 2026 IDmeta Group Pty Ltd. All rights reserved. Melbourne, Australia · Singapore · Kuala Lumpur · Manila · Jakarta</p>
         <div class="footer-bottom-links">
-          <a href="privacy.html">Privacy Policy</a>
+          <a href="/privacy">Privacy Policy</a>
         </div>
       </div>
     </div>`;

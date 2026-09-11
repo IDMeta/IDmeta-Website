@@ -103,7 +103,13 @@ async function handleContact(req, res) {
 async function serveAsset(pathname, res) {
   let decoded;
   try { decoded = decodeURIComponent(pathname); } catch { res.writeHead(400); return res.end('Bad request'); }
-  const candidate = resolve(root, decoded === '/' ? 'index.html' : `.${decoded}`);
+  if (decoded !== '/' && decoded.toLowerCase().endsWith('.html')) {
+    res.writeHead(308, { Location: decoded.slice(0, -'.html'.length) || '/' });
+    return res.end();
+  }
+  const hasExtension = extname(decoded) !== '';
+  const relative = decoded === '/' ? 'index.html' : hasExtension ? `.${decoded}` : `.${decoded}.html`;
+  const candidate = resolve(root, relative);
   const extension = extname(candidate).toLowerCase();
   if (!candidate.startsWith(`${root}${sep}`) || !mime[extension]) { res.writeHead(404); return res.end('Not found'); }
   try {
