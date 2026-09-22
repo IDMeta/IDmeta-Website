@@ -669,7 +669,10 @@ body[data-page="home"] .dev::before{background:none}
    roughly the same optical ink height despite differing crops and aspect ratios.
    multiply blends away the baked-in white grounds on the opaque PNGs. */
 .tw-img{display:block;width:auto;height:var(--ih);object-fit:contain;
-  mix-blend-mode:multiply;filter:brightness(1.05);opacity:.66;transition:opacity .35s ease}
+  mix-blend-mode:multiply;filter:brightness(1.05);opacity:.66;
+  transition:opacity .35s ease,filter .35s ease}
+/* full-colour artwork (NPC badge): desaturated at rest so it sits with the mono marks */
+.tw-img--tint{filter:grayscale(1) brightness(1.04)}
 
 
 /* staggered reveal on scroll */
@@ -686,6 +689,7 @@ body[data-page="home"] .dev::before{background:none}
   .tsec-wall:hover .tw-cell:not(:hover) .tw-img{opacity:.34}
   .tw-cell:hover .tw-mark,.tw-cell:focus-within .tw-mark{transform:translateY(-44px) scale(1.04);opacity:1;color:var(--midnight)}
   .tw-cell:hover .tw-img,.tw-cell:focus-within .tw-img{opacity:1}
+  .tw-cell:hover .tw-img--tint,.tw-cell:focus-within .tw-img--tint{filter:grayscale(0) brightness(1.02)}
   .tw-cell:hover .tw-note,.tw-cell:focus-within .tw-note{opacity:0}
   .tw-cell:hover .tw-body,.tw-cell:focus-within .tw-body{opacity:1;transform:none}
 }
@@ -695,6 +699,7 @@ body[data-page="home"] .dev::before{background:none}
   .tw-body{position:static;opacity:1;transform:none}
   .tw-mark{opacity:1;color:var(--midnight)}
   .tw-img{opacity:1}
+  .tw-img--tint{filter:grayscale(0) brightness(1.02)}
   .tw-note{display:none}
 }
 @media(max-width:980px){.tsec-wall{grid-template-columns:repeat(2,1fr)}}
@@ -705,6 +710,7 @@ body[data-page="home"] .dev::before{background:none}
   .tw-body{position:static;opacity:1;transform:none}
   .tw-mark{opacity:1;color:var(--midnight)}
   .tw-img{opacity:1}
+  .tw-img--tint{filter:grayscale(0) brightness(1.02)}
   .tw-note{display:none}
 }
 @media (prefers-reduced-motion:reduce){
